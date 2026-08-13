@@ -41,3 +41,64 @@
     toggle.setAttribute("aria-pressed", "false");
   });
 })();
+
+/* ---------- Slider comparație înainte / după ---------- */
+(function () {
+  "use strict";
+
+  var sliders = document.querySelectorAll("[data-ba-slider]");
+
+  sliders.forEach(function (root) {
+    var frame = root.querySelector(".ba-slider__frame");
+    var handle = root.querySelector(".ba-slider__handle");
+    if (!frame || !handle) return;
+
+    var dragging = false;
+
+    function setPos(pct) {
+      pct = Math.max(0, Math.min(100, pct));
+      frame.style.setProperty("--pos", pct + "%");
+      handle.setAttribute("aria-valuenow", String(Math.round(pct)));
+    }
+
+    function posFromClientX(clientX) {
+      var rect = frame.getBoundingClientRect();
+      return ((clientX - rect.left) / rect.width) * 100;
+    }
+
+    function clientXFromEvent(e) {
+      return e.touches && e.touches.length ? e.touches[0].clientX : e.clientX;
+    }
+
+    function onDown(e) {
+      dragging = true;
+      setPos(posFromClientX(clientXFromEvent(e)));
+      e.preventDefault();
+    }
+
+    function onMove(e) {
+      if (!dragging) return;
+      setPos(posFromClientX(clientXFromEvent(e)));
+      e.preventDefault();
+    }
+
+    function onUp() {
+      dragging = false;
+    }
+
+    frame.addEventListener("mousedown", onDown);
+    frame.addEventListener("touchstart", onDown, { passive: false });
+    window.addEventListener("mousemove", onMove);
+    window.addEventListener("touchmove", onMove, { passive: false });
+    window.addEventListener("mouseup", onUp);
+    window.addEventListener("touchend", onUp);
+
+    handle.addEventListener("keydown", function (e) {
+      var current = parseFloat(frame.style.getPropertyValue("--pos")) || 50;
+      if (e.key === "ArrowLeft") { setPos(current - 5); e.preventDefault(); }
+      else if (e.key === "ArrowRight") { setPos(current + 5); e.preventDefault(); }
+      else if (e.key === "Home") { setPos(0); e.preventDefault(); }
+      else if (e.key === "End") { setPos(100); e.preventDefault(); }
+    });
+  });
+})();

@@ -8,7 +8,7 @@ Landing page static (HTML/CSS/JS, fără build step) pentru Centrul Implantologi
 - `assets/css/style.css` — stiluri (culori de brand, tipografie mare, layout mobil-first).
 - `assets/js/main.js` — logica butonului audio (play/pause).
 - `assets/logo-cic.png` — logo-ul oficial CIC, decupat cerc din fotografia atașată, fundal transparent.
-- `assets/img/caz-hero.jpg` + `assets/img/caz-1.jpg`, `caz-2.jpg`, `caz-3.jpg` — fotografiile reale înainte/după (hero + galeria „Cazuri reale CIC”).
+- `assets/img/{hero,caz1,caz2,caz3}-{before,after}.jpg` — fotografiile reale înainte/după (hero + galeria „Cazuri reale CIC”), decupate individual și afișate în glisoare interactive (`.ba-slider`) cu bară trăgabilă la mijloc.
 - `assets/audio/dr-lazari-mesaj.mp3` — mesajul audio real, vocea Dr. Lazari (~48 sec).
 
 ## Culori de brand (confirmate)
