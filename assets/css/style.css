@@ -284,6 +284,19 @@ a{color:inherit;}
   grid-template-columns:1fr 1fr;
   gap:1rem;
 }
+.compare__video{
+  grid-column:1 / -1;
+  max-width:480px;
+  margin:0 auto 1.5rem;
+}
+.compare__video video{
+  width:100%;
+  aspect-ratio:16/9;
+  border-radius:var(--radius);
+  border:1px solid #e2e2e2;
+  background:#000;
+  display:block;
+}
 .compare__card{
   border-radius:var(--radius);
   padding:1.75rem 1.25rem;
@@ -307,6 +320,41 @@ a{color:inherit;}
 }
 .badge__icon{width:52px;height:52px;margin-bottom:.6rem;}
 .badge p{font-size:1.1rem;font-weight:800;color:var(--black);}
+
+/* ---------- Testimoniale ---------- */
+.testimonials{background:var(--gray-light);padding:2.5rem 1.25rem;}
+.testimonials__inner{max-width:var(--max);margin:0 auto;text-align:center;}
+.testimonial{
+  max-width:480px;
+  margin:0 auto 1.25rem;
+  padding:1.75rem 1.5rem;
+  background:var(--black);
+  border-radius:var(--radius);
+}
+.testimonial:last-child{margin-bottom:0;}
+.testimonial__photo{
+  width:72px;height:72px;
+  border-radius:50%;
+  object-fit:cover;
+  aspect-ratio:1/1;
+  flex-shrink:0;
+  margin:0 auto .75rem;
+  border:3px solid var(--yellow);
+}
+.testimonial__stars{
+  color:var(--yellow);
+  font-size:1.3rem;
+  letter-spacing:.15em;
+  margin-bottom:.75rem;
+}
+.testimonial__quote{
+  font-size:1.1rem;
+  font-weight:600;
+  color:var(--white);
+  line-height:1.5;
+  margin-bottom:.9rem;
+}
+.testimonial__author{font-size:1rem;font-weight:800;color:var(--yellow);}
 
 /* ---------- Formular final ---------- */
 .final-form{background:var(--white);padding:3rem 1.25rem 4rem;}

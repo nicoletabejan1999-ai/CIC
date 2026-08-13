@@ -10,7 +10,10 @@ Landing page static (HTML/CSS/JS, fără build step) pentru Centrul Implantologi
 - `assets/logo-cic.png` — logo-ul oficial CIC, decupat cerc din fotografia atașată, fundal transparent.
 - `assets/img/hero-{before,after}.jpg` — fotografia reală înainte/după din hero, afișată într-un glisor interactiv (`.ba-slider`) cu bară trăgabilă la mijloc.
 - `assets/img/dr-lazari.png` — fotografia reală a Dr. Vadim Lazari, decupată cerc, fundal transparent.
+- `assets/img/testimonial-{ion,vera}.jpg` — fotografiile pacienților din testimoniale.
+- `assets/img/video-poster.jpg` — cadru poster pentru videoclipul explicativ.
 - `assets/audio/dr-lazari-mesaj.mp3` — mesajul audio real, vocea Dr. Lazari (~48 sec).
+- `assets/video/proteza-vs-dinti-ficsi.mp4` — video explicativ (proteză mobilă vs. dinți ficși pe implant), în secțiunea de comparație. Transcodat din fișierul original (.mov/HEVC) în H.264/AAC pentru compatibilitate universală în browser.
 
 ## Culori de brand (confirmate)
 
@@ -25,10 +28,9 @@ Regulă strictă respectată în tot codul: **niciodată text galben pe alb sau 
 
 ## Ce trebuie înlocuit înainte de lansare (marcat clar în cod)
 
-1. **Numărul de telefon** — momentan placeholder `+373 60 000 000` în bara de sus, footer și bara fixă mobil (`index.html`, atributele `href="tel:..."`).
-2. **Formularul final** — `action="#"` este placeholder; conectează-l la sistemul vostru de CRM/lead (webhook, Google Sheets, etc.).
+1. **Formularul final** — `action="#"` este placeholder; conectează-l la sistemul vostru de CRM/lead (webhook, Google Sheets, etc.).
 
-Fotografia din hero, fotografia Dr. Lazari și mesajul audio sunt deja cele reale, furnizate de client.
+Numărul de telefon (067 903 903), fotografiile, testimonialele, mesajul audio și videoclipul explicativ sunt deja cele reale/finale, furnizate de client.
 
 ## Verificare rapidă locală
 
