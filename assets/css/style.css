@@ -355,15 +355,11 @@ a{color:inherit;}
   border-radius:var(--radius);
 }
 .testimonial:last-child{margin-bottom:0;}
-.testimonial__photo{
-  width:72px;height:72px;
-  border-radius:50%;
-  object-fit:cover;
-  aspect-ratio:1/1;
-  flex-shrink:0;
-  margin:0 auto .75rem;
-  border:3px solid var(--yellow);
+.testimonial__slider{
+  max-width:100%;
+  margin:0 auto 1.1rem;
 }
+.testimonial__slider .ba-slider__frame{border-color:#333;}
 .testimonial__stars{
   color:var(--yellow);
   font-size:1.3rem;

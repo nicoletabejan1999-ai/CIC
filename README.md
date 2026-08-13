@@ -10,7 +10,7 @@ Landing page static (HTML/CSS/JS, fără build step) pentru Centrul Implantologi
 - `assets/logo-cic.png` — logo-ul oficial CIC, decupat cerc din fotografia atașată, fundal transparent.
 - `assets/img/hero-{before,after}.jpg` — fotografia reală înainte/după din hero, afișată într-un glisor interactiv (`.ba-slider`) cu bară trăgabilă la mijloc.
 - `assets/img/dr-lazari.png` — fotografia reală a Dr. Vadim Lazari, decupată cerc, fundal transparent.
-- `assets/img/testimonial-{ion,vera}.jpg` — fotografiile pacienților din testimoniale.
+- `assets/img/testimonial-{ion,vera}-{before,after}.jpg` — fotografiile înainte/după ale pacienților din testimoniale, afișate tot în glisoare `.ba-slider` (Gheorghe M. nu are fotografie disponibilă).
 - `assets/img/video-poster.jpg` — cadru poster pentru videoclipul explicativ.
 - `assets/audio/dr-lazari-mesaj.mp3` — mesajul audio real, vocea Dr. Lazari (~48 sec).
 - `assets/video/proteza-vs-dinti-ficsi.mp4` — video explicativ (proteză mobilă vs. dinți ficși pe implant), în secțiunea de comparație. Transcodat din fișierul original (.mov/HEVC) în H.264/AAC pentru compatibilitate universală în browser.
