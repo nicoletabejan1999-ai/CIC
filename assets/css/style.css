@@ -188,18 +188,18 @@ a{color:inherit;}
 
 .hero__cta{width:100%;max-width:420px;}
 
-/* ---------- Modul audio ---------- */
-.audio-module{background:var(--gray-light);padding:1.25rem;}
-.audio-module__inner{max-width:var(--max);margin:0 auto;text-align:center;}
+/* ---------- Buton audio (folosit în secțiunea medicului, fundal negru) ---------- */
 .audio-btn{
   width:100%;
+  max-width:420px;
+  margin:1.75rem auto 0;
   display:flex;
   align-items:center;
   justify-content:center;
   gap:.75rem;
   background:var(--white);
   color:var(--black);
-  border:2px solid var(--black);
+  border:2px solid var(--yellow);
   border-radius:999px;
   min-height:64px;
   font-size:1.1rem;
@@ -208,9 +208,9 @@ a{color:inherit;}
   padding:.75rem 1.5rem;
 }
 .audio-btn .icon{color:var(--black);}
-.audio-btn[aria-pressed="true"]{background:var(--black);color:var(--white);}
-.audio-btn[aria-pressed="true"] .icon{color:var(--yellow);}
-.audio-module__hint{margin-top:.6rem;font-size:.95rem;color:var(--gray-mid);}
+.audio-btn[aria-pressed="true"]{background:var(--yellow);color:var(--black);border-color:var(--yellow);}
+.audio-btn[aria-pressed="true"] .icon{color:var(--black);}
+.audio-module__hint{margin-top:.6rem;font-size:.95rem;color:#cfcfcf;}
 
 /* ---------- Blocul de preț ---------- */
 .price-block{background:var(--black);padding:2.5rem 1.25rem;text-align:center;}
@@ -266,13 +266,13 @@ a{color:inherit;}
 .doctor{background:var(--black);color:var(--white);padding:2.75rem 1.25rem;text-align:center;}
 .doctor__inner{max-width:var(--max);margin:0 auto;}
 .doctor__photo{
-  width:140px;height:140px;border-radius:50%;
+  width:140px;height:140px;aspect-ratio:1/1;flex-shrink:0;border-radius:50%;
   background:#222;
   border:3px solid var(--yellow);
   margin:0 auto 1.25rem;
   overflow:hidden;
 }
-.doctor__photo img{width:100%;height:100%;object-fit:cover;}
+.doctor__photo img{display:block;width:100%;height:100%;object-fit:cover;}
 .doctor__name{font-size:1.5rem;font-weight:900;margin-bottom:.5rem;}
 .doctor__stat{font-size:1.15rem;font-weight:700;color:var(--yellow);}
 
