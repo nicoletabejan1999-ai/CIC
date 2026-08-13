@@ -103,27 +103,17 @@ a{color:inherit;}
   margin-bottom:1.75rem;
 }
 .hero__photo{
-  display:flex;
+  position:relative;
   border-radius:var(--radius);
   overflow:hidden;
   margin-bottom:2rem;
-  min-height:220px;
   border:1px solid #e6e6e6;
+  line-height:0;
 }
-.hero__photo-half{
-  flex:1;
-  display:flex;
-  align-items:flex-end;
-  padding:1rem;
-  position:relative;
-}
-.hero__photo-half--before{
-  background:linear-gradient(160deg,#d9d9d9,#bdbdbd);
-}
-.hero__photo-half--after{
-  background:linear-gradient(160deg,#2a2a2a,var(--black));
-}
+.hero__photo img{width:100%;height:auto;}
 .hero__photo-tag{
+  position:absolute;
+  bottom:.9rem;
   background:var(--white);
   color:var(--black);
   font-weight:800;
@@ -131,11 +121,28 @@ a{color:inherit;}
   letter-spacing:.04em;
   padding:.35rem .7rem;
   border-radius:999px;
+  box-shadow:0 2px 6px rgba(0,0,0,.25);
 }
+.hero__photo-tag--before{left:.9rem;}
 .hero__photo-tag--after{
+  right:.9rem;
   background:var(--yellow);
   color:var(--black);
 }
+
+/* ---------- Galerie cazuri reale ---------- */
+.gallery{background:var(--gray-light);padding:2.5rem 1.25rem;}
+.gallery__inner{max-width:var(--max);margin:0 auto;text-align:center;}
+.gallery__item{
+  position:relative;
+  border-radius:var(--radius);
+  overflow:hidden;
+  margin-bottom:1.25rem;
+  line-height:0;
+  border:1px solid #e2e2e2;
+}
+.gallery__item:last-child{margin-bottom:0;}
+.gallery__item img{width:100%;height:auto;}
 .hero__cta{width:100%;max-width:420px;}
 
 /* ---------- Modul audio ---------- */
