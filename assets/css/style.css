@@ -434,7 +434,7 @@ a{color:inherit;}
 }
 @media (max-width:640px){
   .mobile-sticky{display:block;}
-  main{padding-bottom:80px;}
+  body{padding-bottom:84px;}
 }
 
 @media (min-width:641px){
