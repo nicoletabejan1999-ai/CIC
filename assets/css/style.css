@@ -186,16 +186,6 @@ a{color:inherit;}
 }
 .ba-slider__handle:focus-visible svg{outline:3px solid var(--black);outline-offset:2px;}
 
-/* ---------- Galerie cazuri reale ---------- */
-.gallery{background:var(--gray-light);padding:2.5rem 1.25rem;}
-.gallery__inner{max-width:var(--max);margin:0 auto;text-align:center;}
-.gallery__grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-  gap:1.25rem;
-  align-items:start;
-}
-.gallery__item{margin:0;max-width:none;}
 .hero__cta{width:100%;max-width:420px;}
 
 /* ---------- Modul audio ---------- */
@@ -276,14 +266,13 @@ a{color:inherit;}
 .doctor{background:var(--black);color:var(--white);padding:2.75rem 1.25rem;text-align:center;}
 .doctor__inner{max-width:var(--max);margin:0 auto;}
 .doctor__photo{
-  width:120px;height:120px;border-radius:50%;
+  width:140px;height:140px;border-radius:50%;
   background:#222;
   border:3px solid var(--yellow);
   margin:0 auto 1.25rem;
-  display:flex;align-items:center;justify-content:center;
   overflow:hidden;
 }
-.doctor__photo svg{width:70%;height:70%;}
+.doctor__photo img{width:100%;height:100%;object-fit:cover;}
 .doctor__name{font-size:1.5rem;font-weight:900;margin-bottom:.5rem;}
 .doctor__stat{font-size:1.15rem;font-weight:700;color:var(--yellow);}
 
