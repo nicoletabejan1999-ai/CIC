@@ -1,0 +1,322 @@
+/* =========================================================
+   CIC — Centrul Implantologic Chișinău — Landing Page
+   Brand: negru #111111 · galben #FCD307 · alb #FFFFFF · gri deschis #F4F4F4
+   Reguli de contrast: NICIODATĂ galben pe alb sau alb pe galben.
+   Text de bază minimum 17-18px, titluri 26px+, butoane mari (public în vârstă).
+   ========================================================= */
+
+:root{
+  --black:#111111;
+  --yellow:#FCD307;
+  --white:#FFFFFF;
+  --gray-light:#F4F4F4;
+  --gray-mid:#6b6b6b;
+  --radius:14px;
+  --max:760px;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+*{box-sizing:border-box;}
+html{font-size:18px;}
+body{
+  margin:0;
+  font-family:var(--font);
+  color:var(--black);
+  background:var(--white);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+h1,h2,h3,p,ul{margin:0;}
+a{color:inherit;}
+
+.icon{width:24px;height:24px;}
+.icon--lg{width:32px;height:32px;}
+
+/* ---------- Buton CTA (galben pe negru text) — regula de aur ---------- */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.5rem;
+  min-height:60px;
+  padding:1rem 2rem;
+  font-size:1.15rem;
+  font-weight:800;
+  text-decoration:none;
+  border-radius:999px;
+  border:none;
+  cursor:pointer;
+  text-align:center;
+}
+.btn--cta{
+  background:var(--yellow);
+  color:var(--black);
+}
+.btn--cta:hover,.btn--cta:focus-visible{background:#e6bd00;}
+.btn--full{width:100%;}
+
+/* ---------- Bara de sus ---------- */
+.topbar{
+  background:var(--black);
+  position:sticky;
+  top:0;
+  z-index:50;
+}
+.topbar__inner{
+  max-width:1100px;
+  margin:0 auto;
+  padding:.6rem 1.25rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.topbar__logo img{
+  width:48px;height:48px;border-radius:50%;
+}
+.topbar__phone{
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+  color:var(--yellow);
+  font-weight:800;
+  font-size:1.15rem;
+  text-decoration:none;
+  padding:.5rem .25rem;
+}
+.topbar__phone .icon{color:var(--yellow);}
+
+/* ---------- Hero ---------- */
+.hero{background:var(--white);padding:2.5rem 1.25rem 2.5rem;}
+.hero__inner{max-width:var(--max);margin:0 auto;text-align:center;}
+.hero__title{
+  color:var(--black);
+  font-size:clamp(1.9rem,5vw + 1rem,2.75rem);
+  font-weight:900;
+  line-height:1.2;
+  margin-bottom:.9rem;
+}
+.hero__subtitle{
+  font-size:1.25rem;
+  font-weight:600;
+  color:#2b2b2b;
+  margin-bottom:1.75rem;
+}
+.hero__photo{
+  display:flex;
+  border-radius:var(--radius);
+  overflow:hidden;
+  margin-bottom:2rem;
+  min-height:220px;
+  border:1px solid #e6e6e6;
+}
+.hero__photo-half{
+  flex:1;
+  display:flex;
+  align-items:flex-end;
+  padding:1rem;
+  position:relative;
+}
+.hero__photo-half--before{
+  background:linear-gradient(160deg,#d9d9d9,#bdbdbd);
+}
+.hero__photo-half--after{
+  background:linear-gradient(160deg,#2a2a2a,var(--black));
+}
+.hero__photo-tag{
+  background:var(--white);
+  color:var(--black);
+  font-weight:800;
+  font-size:.85rem;
+  letter-spacing:.04em;
+  padding:.35rem .7rem;
+  border-radius:999px;
+}
+.hero__photo-tag--after{
+  background:var(--yellow);
+  color:var(--black);
+}
+.hero__cta{width:100%;max-width:420px;}
+
+/* ---------- Modul audio ---------- */
+.audio-module{background:var(--gray-light);padding:1.25rem;}
+.audio-module__inner{max-width:var(--max);margin:0 auto;text-align:center;}
+.audio-btn{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:.75rem;
+  background:var(--white);
+  color:var(--black);
+  border:2px solid var(--black);
+  border-radius:999px;
+  min-height:64px;
+  font-size:1.1rem;
+  font-weight:800;
+  cursor:pointer;
+  padding:.75rem 1.5rem;
+}
+.audio-btn .icon{color:var(--black);}
+.audio-btn[aria-pressed="true"]{background:var(--black);color:var(--white);}
+.audio-btn[aria-pressed="true"] .icon{color:var(--yellow);}
+.audio-module__hint{margin-top:.6rem;font-size:.95rem;color:var(--gray-mid);}
+
+/* ---------- Blocul de preț ---------- */
+.price-block{background:var(--black);padding:2.5rem 1.25rem;text-align:center;}
+.price-block__inner{max-width:var(--max);margin:0 auto;}
+.price-block__label{
+  color:var(--white);
+  font-size:1.1rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  margin-bottom:.4rem;
+}
+.price-block__amount{
+  color:var(--yellow);
+  font-size:clamp(2.4rem,6vw + 1rem,3.5rem);
+  font-weight:900;
+  line-height:1.1;
+}
+.price-block__amount span{font-size:1.4rem;font-weight:700;}
+.price-block__note{color:var(--white);font-size:1.1rem;margin-top:.6rem;font-weight:600;}
+
+/* ---------- Totul inclus ---------- */
+.included{background:var(--white);padding:2.5rem 1.25rem;}
+.included__inner{max-width:var(--max);margin:0 auto;text-align:center;}
+.section-title{
+  font-size:clamp(1.5rem,3vw + 1rem,2rem);
+  font-weight:900;
+  color:var(--black);
+  margin-bottom:1.5rem;
+}
+.included__list{
+  list-style:none;
+  padding:0;
+  margin:0 0 2rem;
+  display:grid;
+  gap:1rem;
+  text-align:left;
+  max-width:480px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.included__list li{
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+  font-size:1.2rem;
+  font-weight:700;
+  color:var(--black);
+}
+.included__list .check{width:30px;height:30px;flex:none;}
+
+/* ---------- Medic ---------- */
+.doctor{background:var(--black);color:var(--white);padding:2.75rem 1.25rem;text-align:center;}
+.doctor__inner{max-width:var(--max);margin:0 auto;}
+.doctor__photo{
+  width:120px;height:120px;border-radius:50%;
+  background:#222;
+  border:3px solid var(--yellow);
+  margin:0 auto 1.25rem;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.doctor__photo svg{width:70%;height:70%;}
+.doctor__name{font-size:1.5rem;font-weight:900;margin-bottom:.5rem;}
+.doctor__stat{font-size:1.15rem;font-weight:700;color:var(--yellow);}
+
+/* ---------- Banda de comparație ---------- */
+.compare{background:var(--white);padding:2.5rem 1.25rem;}
+.compare__inner{
+  max-width:var(--max);margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+}
+.compare__card{
+  border-radius:var(--radius);
+  padding:1.75rem 1.25rem;
+  text-align:center;
+}
+.compare__card--bad{background:var(--gray-light);color:var(--black);}
+.compare__card--good{background:var(--black);color:var(--white);}
+.compare__icon{width:44px;height:44px;margin-bottom:.75rem;}
+.compare__card h3{font-size:1.25rem;font-weight:900;margin-bottom:.4rem;}
+.compare__card p{font-size:1.05rem;font-weight:600;}
+.compare__card--good p{color:var(--white);}
+
+/* ---------- Insigne de încredere ---------- */
+.badges{background:var(--gray-light);padding:2.5rem 1.25rem;}
+.badges__inner{
+  max-width:var(--max);margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.5rem;
+  text-align:center;
+}
+.badge__icon{width:52px;height:52px;margin-bottom:.6rem;}
+.badge p{font-size:1.1rem;font-weight:800;color:var(--black);}
+
+/* ---------- Formular final ---------- */
+.final-form{background:var(--white);padding:3rem 1.25rem 4rem;}
+.final-form__inner{max-width:480px;margin:0 auto;text-align:center;}
+.final-form__subtitle{font-size:1.2rem;font-weight:600;color:#2b2b2b;margin:.5rem 0 2rem;}
+.lead-form{display:flex;flex-direction:column;gap:1rem;text-align:left;}
+.lead-form label{font-size:1.05rem;font-weight:700;color:var(--black);}
+.lead-form input{
+  font-size:1.15rem;
+  padding:1rem;
+  border:2px solid #c9c9c9;
+  border-radius:10px;
+  min-height:56px;
+  font-family:inherit;
+}
+.lead-form input:focus{outline:3px solid var(--black);border-color:var(--black);}
+.lead-form .btn{margin-top:.5rem;}
+
+/* ---------- Footer ---------- */
+.footer{background:var(--black);color:var(--white);padding:2.5rem 1.25rem;text-align:center;}
+.footer__inner{max-width:var(--max);margin:0 auto;}
+.footer img{margin:0 auto 1rem;border-radius:50%;}
+.footer__name{font-size:1.15rem;font-weight:800;margin-bottom:.5rem;}
+.footer__phone{
+  display:inline-block;
+  color:var(--yellow);
+  font-weight:800;
+  font-size:1.2rem;
+  text-decoration:none;
+  margin-bottom:.5rem;
+}
+.footer__address{color:#cfcfcf;font-size:1rem;}
+
+/* ---------- Bară fixă mobil ---------- */
+.mobile-sticky{
+  display:none;
+  position:fixed;
+  left:0;right:0;bottom:0;
+  z-index:60;
+  padding:.6rem;
+  background:var(--white);
+  box-shadow:0 -4px 14px rgba(0,0,0,.15);
+}
+.mobile-sticky__link{
+  display:block;
+  text-align:center;
+  background:var(--yellow);
+  color:var(--black);
+  font-weight:900;
+  font-size:1.15rem;
+  padding:1rem;
+  border-radius:999px;
+  text-decoration:none;
+}
+@media (max-width:640px){
+  .mobile-sticky{display:block;}
+  main{padding-bottom:80px;}
+}
+
+@media (min-width:641px){
+  .hero__cta{width:auto;padding-left:3rem;padding-right:3rem;}
+}
