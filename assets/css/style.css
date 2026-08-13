@@ -103,7 +103,7 @@ a{color:inherit;}
   margin-bottom:1.75rem;
 }
 .hero__photo{margin-bottom:2rem;}
-.ba-slider{margin-bottom:2rem;}
+.ba-slider{margin:0 auto 2rem;max-width:380px;}
 
 /* ---------- Slider comparație înainte / după ---------- */
 .ba-slider__frame{
@@ -189,8 +189,13 @@ a{color:inherit;}
 /* ---------- Galerie cazuri reale ---------- */
 .gallery{background:var(--gray-light);padding:2.5rem 1.25rem;}
 .gallery__inner{max-width:var(--max);margin:0 auto;text-align:center;}
-.gallery__item{margin-bottom:1.5rem;}
-.gallery__item:last-child{margin-bottom:0;}
+.gallery__grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:1.25rem;
+  align-items:start;
+}
+.gallery__item{margin:0;max-width:none;}
 .hero__cta{width:100%;max-width:420px;}
 
 /* ---------- Modul audio ---------- */
