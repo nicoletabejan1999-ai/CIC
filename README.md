@@ -28,6 +28,7 @@ Regulă strictă respectată în tot codul: **niciodată text galben pe alb sau 
 ## Ce trebuie înlocuit înainte de lansare (marcat clar în cod)
 
 1. **Formularul final** — `action="#"` este placeholder; conectează-l la sistemul vostru de CRM/lead (webhook, Google Sheets, etc.).
+2. **Numărul „10 consultații disponibile zilnic"** din banda galbenă de sub bara de sus (`.urgency-bar`, în `index.html`) — confirmați cifra reală de consultații pe care clinica le poate onora zilnic înainte de lansare.
 
 Numărul de telefon (067 903 903), fotografiile, testimonialele, mesajul audio și videoclipul explicativ sunt deja cele reale/finale, furnizate de client.
 
