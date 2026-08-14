@@ -40,15 +40,62 @@
       <h1 class="hero__title">Dinți ficși în 4 zile — preț fix, totul inclus.</h1>
       <p class="hero__subtitle">Fixat în contract. Fără costuri ascunse.</p>
 
-      <div class="ba-slider ba-slider--wide" data-ba-slider>
-        <div class="ba-slider__frame">
-          <img class="ba-slider__img ba-slider__img--after" src="assets/img/testimonial-ion-after.jpg" alt="Zâmbetul lui Ion C. după tratament — dinți ficși în 4 zile" width="900" height="364" loading="eager">
-          <img class="ba-slider__img ba-slider__img--before" src="assets/img/testimonial-ion-before.jpg" alt="Zâmbetul lui Ion C. înainte de tratament" width="900" height="364" loading="eager">
-          <span class="ba-slider__tag ba-slider__tag--before">ÎNAINTE</span>
-          <span class="ba-slider__tag ba-slider__tag--after">DUPĂ</span>
-          <div class="ba-slider__handle" tabindex="0" role="slider" aria-label="Glisează pentru a compara înainte și după" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5" stroke="#111111" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="hero-carousel" data-carousel>
+       <div class="hero-carousel__viewport">
+        <button type="button" class="hero-carousel__arrow hero-carousel__arrow--prev" data-carousel-prev aria-label="Cazul anterior">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6" stroke="#111111" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button type="button" class="hero-carousel__arrow hero-carousel__arrow--next" data-carousel-next aria-label="Cazul următor">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="#111111" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <div class="hero-carousel__slide is-active">
+          <div class="ba-slider ba-slider--wide" data-ba-slider>
+            <div class="ba-slider__frame">
+              <img class="ba-slider__img ba-slider__img--after" src="assets/img/testimonial-ion-after.jpg" alt="Zâmbetul lui Ion C. după tratament — dinți ficși în 4 zile" width="900" height="364" loading="eager">
+              <img class="ba-slider__img ba-slider__img--before" src="assets/img/testimonial-ion-before.jpg" alt="Zâmbetul lui Ion C. înainte de tratament" width="900" height="364" loading="eager">
+              <span class="ba-slider__tag ba-slider__tag--before">ÎNAINTE</span>
+              <span class="ba-slider__tag ba-slider__tag--after">DUPĂ</span>
+              <div class="ba-slider__handle" tabindex="0" role="slider" aria-label="Glisează pentru a compara înainte și după" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5" stroke="#111111" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
           </div>
+        </div>
+
+        <div class="hero-carousel__slide">
+          <div class="ba-slider ba-slider--wide" data-ba-slider>
+            <div class="ba-slider__frame">
+              <img class="ba-slider__img ba-slider__img--after" src="assets/img/testimonial-woman2-after.jpg" alt="Zâmbetul unei paciente CIC după tratament — dinți ficși în 4 zile" width="900" height="364" loading="lazy">
+              <img class="ba-slider__img ba-slider__img--before" src="assets/img/testimonial-woman2-before.jpg" alt="Zâmbetul unei paciente CIC înainte de tratament" width="900" height="364" loading="lazy">
+              <span class="ba-slider__tag ba-slider__tag--before">ÎNAINTE</span>
+              <span class="ba-slider__tag ba-slider__tag--after">DUPĂ</span>
+              <div class="ba-slider__handle" tabindex="0" role="slider" aria-label="Glisează pentru a compara înainte și după" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5" stroke="#111111" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-carousel__slide">
+          <div class="ba-slider ba-slider--wide" data-ba-slider>
+            <div class="ba-slider__frame">
+              <img class="ba-slider__img ba-slider__img--after" src="assets/img/testimonial-man2-after.jpg" alt="Zâmbetul unui pacient CIC după tratament — dinți ficși în 4 zile" width="900" height="364" loading="lazy">
+              <img class="ba-slider__img ba-slider__img--before" src="assets/img/testimonial-man2-before.jpg" alt="Zâmbetul unui pacient CIC înainte de tratament" width="900" height="364" loading="lazy">
+              <span class="ba-slider__tag ba-slider__tag--before">ÎNAINTE</span>
+              <span class="ba-slider__tag ba-slider__tag--after">DUPĂ</span>
+              <div class="ba-slider__handle" tabindex="0" role="slider" aria-label="Glisează pentru a compara înainte și după" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5" stroke="#111111" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+       </div>
+
+        <div class="hero-carousel__dots">
+          <button type="button" class="hero-carousel__dot is-active" data-carousel-dot="0" aria-label="Cazul 1"></button>
+          <button type="button" class="hero-carousel__dot" data-carousel-dot="1" aria-label="Cazul 2"></button>
+          <button type="button" class="hero-carousel__dot" data-carousel-dot="2" aria-label="Cazul 3"></button>
         </div>
       </div>
 

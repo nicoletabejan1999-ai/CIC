@@ -102,3 +102,36 @@
     });
   });
 })();
+
+/* ---------- Carusel cazuri hero ---------- */
+(function () {
+  "use strict";
+
+  var carousels = document.querySelectorAll("[data-carousel]");
+
+  carousels.forEach(function (root) {
+    var slides = root.querySelectorAll(".hero-carousel__slide");
+    var dots = root.querySelectorAll("[data-carousel-dot]");
+    var prevBtn = root.querySelector("[data-carousel-prev]");
+    var nextBtn = root.querySelector("[data-carousel-next]");
+    if (!slides.length) return;
+
+    var current = 0;
+
+    function show(index) {
+      current = (index + slides.length) % slides.length;
+      slides.forEach(function (slide, i) {
+        slide.classList.toggle("is-active", i === current);
+      });
+      dots.forEach(function (dot, i) {
+        dot.classList.toggle("is-active", i === current);
+      });
+    }
+
+    dots.forEach(function (dot, i) {
+      dot.addEventListener("click", function () { show(i); });
+    });
+    if (prevBtn) prevBtn.addEventListener("click", function () { show(current - 1); });
+    if (nextBtn) nextBtn.addEventListener("click", function () { show(current + 1); });
+  });
+})();
