@@ -32,13 +32,17 @@ module.exports = async (req, res) => {
       }),
     });
 
+    const upstreamText = await upstream.text();
+
     if (!upstream.ok) {
-      res.status(502).json({ error: "Trimiterea către Google Sheets a eșuat" });
+      console.error("Google Apps Script a răspuns cu eroare:", upstream.status, upstreamText.slice(0, 500));
+      res.status(502).json({ error: "Google Sheets a răspuns cu status " + upstream.status });
       return;
     }
 
     res.status(200).json({ ok: true });
   } catch (err) {
-    res.status(502).json({ error: "Trimiterea către Google Sheets a eșuat" });
+    console.error("Fetch către Google Apps Script a eșuat:", err && err.message);
+    res.status(502).json({ error: "Nu s-a putut contacta Google Sheets: " + (err && err.message) });
   }
 };

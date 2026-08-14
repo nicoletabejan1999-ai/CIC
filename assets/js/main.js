@@ -165,13 +165,23 @@
       body: JSON.stringify({ nume: nume, telefon: telefon }),
     })
       .then(function (res) {
-        if (!res.ok) throw new Error("submit failed");
-        form.reset();
-        status.textContent = "Mulțumim! Vă sunăm în cel mai scurt timp.";
-        status.classList.add("lead-form__status--ok");
+        if (res.ok) {
+          form.reset();
+          status.textContent = "Mulțumim! Vă sunăm în cel mai scurt timp.";
+          status.classList.add("lead-form__status--ok");
+          return;
+        }
+        return res
+          .json()
+          .catch(function () { return {}; })
+          .then(function (body) {
+            var detail = body && body.error ? " (" + body.error + ")" : "";
+            status.textContent = "A apărut o eroare la trimitere" + detail + ". Sunați-ne direct la 067 903 903.";
+            status.classList.add("lead-form__status--error");
+          });
       })
       .catch(function () {
-        status.textContent = "A apărut o eroare la trimitere. Sunați-ne direct la 067 903 903.";
+        status.textContent = "A apărut o eroare la trimitere (conexiune). Sunați-ne direct la 067 903 903.";
         status.classList.add("lead-form__status--error");
       })
       .finally(function () {
