@@ -115,55 +115,36 @@ a{color:inherit;}
   margin-top:.1rem;
 }
 
-/* ---------- Sticker "azi programate" ---------- */
+/* ---------- Sticker "Programează azi / Nu rata!" ---------- */
 .urgency-sticker{
   position:absolute;
-  right:.9rem;
-  bottom:-30px;
+  right:.75rem;
+  bottom:-16px;
   transform:rotate(-5deg);
   z-index:10;
-  display:flex;
-  align-items:center;
-  gap:.5rem;
   background:var(--black);
   border:2px dashed var(--yellow);
-  border-radius:14px;
-  padding:.4rem .65rem;
+  border-radius:12px;
+  padding:.3rem .55rem;
   box-shadow:0 5px 12px rgba(0,0,0,.4);
-  max-width:200px;
-}
-.urgency-sticker__num{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:30px;height:30px;
-  flex-shrink:0;
-  border-radius:50%;
-  background:var(--yellow);
-  color:var(--black);
-  font-size:1.05rem;
-  font-weight:900;
 }
 .urgency-sticker__text{
-  color:var(--white);
-  font-size:.68rem;
-  font-weight:800;
-  line-height:1.15;
-  text-align:left;
-}
-.urgency-sticker__warn{
-  display:none;
+  display:block;
+  color:var(--yellow);
+  font-size:.7rem;
+  font-weight:900;
+  line-height:1.25;
+  text-align:center;
+  white-space:nowrap;
 }
 
 @media (min-width:480px){
   .urgency-sticker{
     right:1.5rem;
-    bottom:-34px;
-    padding:.5rem .8rem;
-    max-width:230px;
+    bottom:-18px;
+    padding:.45rem .8rem;
   }
-  .urgency-sticker__num{width:34px;height:34px;font-size:1.15rem;}
-  .urgency-sticker__text{font-size:.75rem;}
+  .urgency-sticker__text{font-size:.85rem;}
 }
 
 /* ---------- Hero ---------- */
