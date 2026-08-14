@@ -119,21 +119,21 @@ a{color:inherit;}
 .urgency-sticker{
   position:absolute;
   right:.75rem;
-  bottom:-16px;
+  bottom:-22px;
   transform:rotate(-5deg);
   z-index:10;
   background:var(--black);
   border:2px dashed var(--yellow);
-  border-radius:12px;
-  padding:.3rem .55rem;
-  box-shadow:0 5px 12px rgba(0,0,0,.4);
+  border-radius:10px;
+  padding:.22rem .45rem;
+  box-shadow:0 4px 10px rgba(0,0,0,.4);
 }
 .urgency-sticker__text{
   display:block;
   color:var(--yellow);
-  font-size:.7rem;
+  font-size:.6rem;
   font-weight:900;
-  line-height:1.25;
+  line-height:1.2;
   text-align:center;
   white-space:nowrap;
 }
@@ -141,10 +141,10 @@ a{color:inherit;}
 @media (min-width:480px){
   .urgency-sticker{
     right:1.5rem;
-    bottom:-18px;
-    padding:.45rem .8rem;
+    bottom:-24px;
+    padding:.3rem .6rem;
   }
-  .urgency-sticker__text{font-size:.85rem;}
+  .urgency-sticker__text{font-size:.68rem;}
 }
 
 /* ---------- Hero ---------- */
