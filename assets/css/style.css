@@ -88,10 +88,12 @@ a{color:inherit;}
 
 /* ---------- Bandă urgență / gratuit ---------- */
 .urgency-bar{
+  position:relative;
   background:var(--yellow);
   color:var(--black);
   text-align:center;
   padding:.75rem 1.25rem;
+  margin-bottom:38px;
 }
 .urgency-bar__line1{
   font-size:1.05rem;
@@ -103,6 +105,57 @@ a{color:inherit;}
   font-weight:900;
   letter-spacing:.02em;
   margin-top:.1rem;
+}
+
+/* ---------- Sticker "azi programate" ---------- */
+.urgency-sticker{
+  position:absolute;
+  right:.9rem;
+  bottom:-30px;
+  transform:rotate(-5deg);
+  z-index:10;
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+  background:var(--black);
+  border:2px dashed var(--yellow);
+  border-radius:14px;
+  padding:.4rem .65rem;
+  box-shadow:0 5px 12px rgba(0,0,0,.4);
+  max-width:200px;
+}
+.urgency-sticker__num{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:30px;height:30px;
+  flex-shrink:0;
+  border-radius:50%;
+  background:var(--yellow);
+  color:var(--black);
+  font-size:1.05rem;
+  font-weight:900;
+}
+.urgency-sticker__text{
+  color:var(--white);
+  font-size:.68rem;
+  font-weight:800;
+  line-height:1.15;
+  text-align:left;
+}
+.urgency-sticker__warn{
+  display:none;
+}
+
+@media (min-width:480px){
+  .urgency-sticker{
+    right:1.5rem;
+    bottom:-34px;
+    padding:.5rem .8rem;
+    max-width:230px;
+  }
+  .urgency-sticker__num{width:34px;height:34px;font-size:1.15rem;}
+  .urgency-sticker__text{font-size:.75rem;}
 }
 
 /* ---------- Hero ---------- */
@@ -304,6 +357,10 @@ a{color:inherit;}
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:1rem;
+}
+.compare__inner > .section-title{
+  grid-column:1 / -1;
+  text-align:center;
 }
 .compare__video{
   grid-column:1 / -1;
