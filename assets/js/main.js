@@ -135,3 +135,48 @@
     if (nextBtn) nextBtn.addEventListener("click", function () { show(current + 1); });
   });
 })();
+
+/* ---------- Formular final (trimite către Google Sheets via /api/submit-lead) ---------- */
+(function () {
+  "use strict";
+
+  var form = document.getElementById("leadForm");
+  var status = document.getElementById("leadFormStatus");
+  if (!form || !status) return;
+
+  var button = form.querySelector("button[type=submit]");
+  var idleLabel = button.textContent;
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    var nume = form.nume.value.trim();
+    var telefon = form.telefon.value.trim();
+    if (!nume || !telefon) return;
+
+    button.disabled = true;
+    button.textContent = "Se trimite…";
+    status.textContent = "";
+    status.className = "lead-form__status";
+
+    fetch("/api/submit-lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ nume: nume, telefon: telefon }),
+    })
+      .then(function (res) {
+        if (!res.ok) throw new Error("submit failed");
+        form.reset();
+        status.textContent = "Mulțumim! Vă sunăm în cel mai scurt timp.";
+        status.classList.add("lead-form__status--ok");
+      })
+      .catch(function () {
+        status.textContent = "A apărut o eroare la trimitere. Sunați-ne direct la 067 903 903.";
+        status.classList.add("lead-form__status--error");
+      })
+      .finally(function () {
+        button.disabled = false;
+        button.textContent = idleLabel;
+      });
+  });
+})();

@@ -617,6 +617,15 @@ a{color:inherit;}
 }
 .lead-form input:focus{outline:3px solid var(--black);border-color:var(--black);}
 .lead-form .btn{margin-top:.5rem;}
+.lead-form .btn:disabled{opacity:.7;cursor:default;}
+.lead-form__status{
+  margin:0;
+  font-size:1rem;
+  font-weight:700;
+  text-align:center;
+  min-height:1.3em;
+}
+.lead-form__status--ok,.lead-form__status--error{color:var(--black);}
 
 /* ---------- Footer ---------- */
 .footer{background:var(--black);color:var(--white);padding:2.5rem 1.25rem;text-align:center;}

@@ -358,7 +358,7 @@
       <h2 class="section-title">Află ce se poate în cazul tău.</h2>
       <p class="final-form__subtitle">Lasă datele — te sunăm azi.</p>
 
-      <form class="lead-form" action="#" method="post">
+      <form class="lead-form" id="leadForm" method="post">
         <label for="nume">Nume</label>
         <input type="text" id="nume" name="nume" autocomplete="name" required>
 
@@ -366,6 +366,7 @@
         <input type="tel" id="telefon" name="telefon" autocomplete="tel" inputmode="tel" required>
 
         <button type="submit" class="btn btn--cta btn--full">Programează un apel gratuit</button>
+        <p class="lead-form__status" id="leadFormStatus" role="status" aria-live="polite"></p>
       </form>
     </div>
   </section>
