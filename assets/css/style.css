@@ -85,6 +85,14 @@ a{color:inherit;}
   padding:.5rem .25rem;
 }
 .topbar__phone .icon{color:var(--yellow);}
+.topbar__note{
+  margin:0;
+  padding:0 1.25rem .55rem;
+  text-align:center;
+  color:var(--white);
+  font-size:.85rem;
+  font-weight:700;
+}
 
 /* ---------- Bandă urgență / gratuit ---------- */
 .urgency-bar{
