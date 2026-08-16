@@ -458,8 +458,14 @@ a{color:inherit;}
   margin-bottom:1rem;
 }
 .who-for__card:last-child{margin-bottom:0;}
-.who-for__icon{flex-shrink:0;width:26px;height:26px;margin-top:.15rem;}
-.who-for__icon svg{width:100%;height:100%;}
+.who-for__icon{
+  flex-shrink:0;
+  width:56px;height:56px;
+  border-radius:50%;
+  overflow:hidden;
+  border:2px solid var(--yellow);
+}
+.who-for__icon img{display:block;width:100%;height:100%;object-fit:cover;}
 .who-for__card p{font-size:1.05rem;color:#e2e2e2;line-height:1.4;}
 
 /* ---------- Insigne de încredere ---------- */
