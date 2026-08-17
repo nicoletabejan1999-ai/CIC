@@ -12,7 +12,7 @@ Landing page static (HTML/CSS/JS, fără build step) pentru Centrul Implantologi
 - `assets/img/testimonial-{ion,vera}-{before,after}.jpg` — fotografiile înainte/după ale pacienților din testimoniale, afișate în glisoare interactive (`.ba-slider`) cu bară trăgabilă la mijloc (Gheorghe M. nu are fotografie disponibilă).
 - `assets/img/testimonial-{woman2,man2,woman3}-{before,after}.jpg` — încă 3 cazuri reale, folosite doar în caruselul din hero (`.hero-carousel`) alături de cazul lui Ion C. — 4 cazuri navigabile cu săgeți/puncte, câte unul vizibil o dată.
 - `assets/img/video-poster.jpg` — cadru poster pentru videoclipul explicativ.
-- `assets/audio/dr-lazari-mesaj.mp3` — mesajul audio real, vocea Dr. Lazari (~48 sec).
+- `assets/video/dr-lazari-mesaj.mp4` — mesajul video real al Dr. Lazari, filmat la clinică (~77 sec). Transcodat din fișierul original (.mov/HEVC) în H.264/AAC. Înlocuiește mesajul audio inițial.
 - `assets/video/proteza-vs-dinti-ficsi.mp4` — video explicativ (proteză mobilă vs. dinți ficși pe implant), în secțiunea de comparație. Transcodat din fișierul original (.mov/HEVC) în H.264/AAC pentru compatibilitate universală în browser.
 - `api/submit-lead.js` — funcție serverless Vercel; primește datele din formular și le trimite mai departe către Google Apps Script (URL-ul citit din variabila de mediu `GOOGLE_SCRIPT_URL`, niciodată expus în codul din browser).
 - `google-apps-script/Code.gs` — codul de lipit în Google Apps Script, care scrie fiecare trimitere de formular ca rând nou într-un Google Sheet.
@@ -52,9 +52,9 @@ După acești pași, fiecare trimitere din formularul de pe pagină apare ca râ
 
 **Notă:** dacă site-ul rămâne găzduit pe GitHub Pages (fără server), funcția din `api/` nu va rula — GitHub Pages servește doar fișiere statice. Pentru ca formularul să funcționeze cu adevărat, site-ul trebuie găzduit pe Vercel (sau alt hosting cu suport pentru funcții serverless).
 
-## Mesajul audio — pornire automată
+## Mesajul video al medicului — pornire automată
 
-Mesajul Dr. Lazari pornește acum automat la încărcarea paginii, cu un buton flotant permanent în colțul stânga jos (peste tot pe pagină) ca vizitatorul să-l poată opri oricând, plus butonul original din secțiunea medicului.
+Secțiunea medicului conține acum mesajul video real al Dr. Lazari (înainte era doar audio) — se redă cu controale native (play/pauză/volum/fullscreen), pornește automat la încărcarea paginii, și există un buton flotant permanent în colțul stânga jos (peste tot pe pagină) ca vizitatorul să-l poată opri oricând, indiferent unde a scrolat.
 
 **Important:** niciun site nu poate garanta 100% pornirea automată cu sunet — Chrome și Safari blochează de obicei autoplay cu sunet la prima vizită a unui domeniu, indiferent de cod (politică de browser, nu ceva ce putem controla din site). Codul încearcă autoplay la încărcare; dacă browserul îl blochează, pornește automat la prima atingere/click/tastă de oriunde pe pagină — practic instant din perspectiva vizitatorului, fără să mai fie nevoie să caute butonul.
 

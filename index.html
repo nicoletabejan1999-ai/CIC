@@ -137,8 +137,8 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
     </div>
   </section>
 
-  <!-- ===== MEDIC + MESAJ AUDIO ===== -->
-  <section class="doctor" aria-label="Mesaj audio de la Dr. Vadim Lazari">
+  <!-- ===== MEDIC + MESAJ VIDEO ===== -->
+  <section class="doctor" aria-label="Mesaj video de la Dr. Vadim Lazari">
     <div class="doctor__inner">
       <div class="doctor__photo">
         <img src="assets/img/dr-lazari.png" alt="Dr. Vadim Lazari, fondator Centrul Implantologic Chișinău" width="400" height="400">
@@ -146,18 +146,13 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
       <p class="doctor__name">Dr. Vadim Lazari</p>
       <p class="doctor__stat">5.000+ implanturi&nbsp;·&nbsp;1.000+ reabilitări totale</p>
 
-      <button type="button" id="audioToggle" class="audio-btn" aria-pressed="false">
-        <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M4 9v6h4l5 5V4L8 9H4z" fill="currentColor"/>
-          <path id="audioWaves" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
-        </svg>
-        <span id="audioLabel">Ascultă un mesaj de la Dr. Lazari</span>
-      </button>
+      <div class="doctor__video">
+        <video id="drVideo" controls playsinline preload="auto" poster="assets/img/dr-lazari-video-poster.jpg" aria-label="Mesaj video de la Dr. Vadim Lazari">
+          <source src="assets/video/dr-lazari-mesaj.mp4" type="video/mp4">
+          Browserul dumneavoastră nu suportă redarea video.
+        </video>
+      </div>
       <p class="audio-module__hint">Mesajul pornește automat. Îl poți opri oricând de aici sau din colțul din stânga jos.</p>
-      <audio id="drAudio" preload="auto">
-        <source src="assets/audio/dr-lazari-mesaj.mp3" type="audio/mpeg">
-        Browserul dumneavoastră nu suportă redarea audio.
-      </audio>
     </div>
   </section>
 
@@ -459,7 +454,7 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
 </footer>
 
 <!-- ===== BUTON AUDIO FLOTANT (permanent, colț stânga jos) ===== -->
-<button type="button" id="audioFab" class="audio-fab" aria-pressed="false" aria-label="Oprește mesajul audio de la Dr. Lazari" hidden>
+<button type="button" id="audioFab" class="audio-fab" aria-pressed="false" aria-label="Oprește mesajul video de la Dr. Lazari" hidden>
   <svg class="audio-fab__icon-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor"/></svg>
   <svg class="audio-fab__icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5l12 7-12 7V5z" fill="currentColor"/></svg>
 </button>

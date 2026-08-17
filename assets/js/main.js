@@ -1,69 +1,42 @@
 (function () {
   "use strict";
 
-  var audio = document.getElementById("drAudio");
-  var toggle = document.getElementById("audioToggle");
-  var label = document.getElementById("audioLabel");
+  var video = document.getElementById("drVideo");
   var fab = document.getElementById("audioFab");
-  if (!audio || !toggle || !label) return;
-
-  var LABEL_IDLE = "Ascultă un mesaj de la Dr. Lazari";
-  var LABEL_PLAYING = "Se redă… apasă pentru pauză";
-  var LABEL_UNAVAILABLE = "Mesajul audio nu este încă disponibil";
+  if (!video) return;
 
   if (fab) fab.hidden = false;
 
   function setPressed(isPlaying) {
-    toggle.setAttribute("aria-pressed", isPlaying ? "true" : "false");
     if (fab) fab.setAttribute("aria-pressed", isPlaying ? "true" : "false");
   }
 
   function play() {
-    return audio.play();
+    return video.play();
   }
 
-  function toggleAudio() {
-    if (audio.paused) {
-      play().catch(function () {
-        label.textContent = LABEL_UNAVAILABLE;
-        setPressed(false);
-      });
-    } else {
-      audio.pause();
-    }
+  if (fab) {
+    fab.addEventListener("click", function () {
+      if (video.paused) {
+        play().catch(function () {});
+      } else {
+        video.pause();
+      }
+    });
   }
 
-  toggle.addEventListener("click", toggleAudio);
-  if (fab) fab.addEventListener("click", toggleAudio);
-
-  audio.addEventListener("play", function () {
-    setPressed(true);
-    label.textContent = LABEL_PLAYING;
-  });
-
-  audio.addEventListener("pause", function () {
-    setPressed(false);
-    label.textContent = LABEL_IDLE;
-  });
-
-  audio.addEventListener("ended", function () {
-    setPressed(false);
-    label.textContent = LABEL_IDLE;
-  });
-
-  audio.addEventListener("error", function () {
-    label.textContent = LABEL_UNAVAILABLE;
-    setPressed(false);
-  });
+  video.addEventListener("play", function () { setPressed(true); });
+  video.addEventListener("pause", function () { setPressed(false); });
+  video.addEventListener("ended", function () { setPressed(false); });
 
   // Pornire instantă: încercăm autoplay la încărcare. Dacă browserul blochează
   // sunetul (comun la prima vizită, înainte de orice interacțiune), pornim
   // automat la prima atingere/click/tastă de oriunde pe pagină, o singură dată —
-  // dar NUMAI dacă autoplay-ul chiar a eșuat, ca să nu repornească sunetul
-  // dacă vizitatorul apasă butonul chiar el ca să-l oprească.
+  // dar NUMAI dacă autoplay-ul chiar a eșuat, ca să nu repornească redarea
+  // dacă vizitatorul apasă chiar el pauză (nativ sau din butonul flotant).
   play().catch(function () {
     function tryPlayOnFirstInteraction() {
-      if (audio.paused) play().catch(function () {});
+      if (video.paused) play().catch(function () {});
     }
     document.addEventListener("click", tryPlayOnFirstInteraction, { once: true });
     document.addEventListener("touchstart", tryPlayOnFirstInteraction, { once: true, passive: true });
