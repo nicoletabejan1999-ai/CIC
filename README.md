@@ -52,11 +52,29 @@ După acești pași, fiecare trimitere din formularul de pe pagină apare ca râ
 
 **Notă:** dacă site-ul rămâne găzduit pe GitHub Pages (fără server), funcția din `api/` nu va rula — GitHub Pages servește doar fișiere statice. Pentru ca formularul să funcționeze cu adevărat, site-ul trebuie găzduit pe Vercel (sau alt hosting cu suport pentru funcții serverless).
 
+## Meta Pixel + Conversions API (CAPI)
+
+Pagina trimite evenimentul „Lead" (cineva a completat formularul) atât din browser (Pixel), cât și direct de pe server (CAPI) — dublă urmărire, recomandată de Meta, cu deduplicare automată prin același `event_id` trimis pe ambele căi. Sunt două lucruri diferite, din locuri diferite:
+
+**Pixel ID** — *nu e secret* (apare oricum vizibil în codul paginii de fiecare dată când se încarcă), de asta e scris direct în `index.html`, nu ca variabilă de mediu:
+1. Meta Events Manager → Data Sources → Pixel-ul vostru → `Settings` → copiați **Pixel ID** (un număr, ex. `123456789012345`).
+2. În `index.html`, căutați `YOUR_PIXEL_ID` (apare de 2 ori, în `<script>` și în `<noscript>`) și înlocuiți-l cu Pixel ID-ul real.
+
+**CAPI Access Token** — *acesta chiar e secret* (oricine îl are poate trimite evenimente false în numele vostru), de asta stă doar ca variabilă de mediu în Vercel, niciodată în cod:
+1. Meta Events Manager → Data Sources → Pixel-ul vostru → `Settings` → secțiunea „Conversions API" → `Generate access token`.
+2. În Vercel: `Project Settings → Environment Variables` → adăugați:
+   - `FB_PIXEL_ID` — același Pixel ID de mai sus (funcția serverless are nevoie de el ca să știe către ce Pixel trimite evenimentele CAPI)
+   - `FB_CAPI_ACCESS_TOKEN` — token-ul generat la pasul anterior
+3. Redeploy.
+
+Dacă `FB_PIXEL_ID` / `FB_CAPI_ACCESS_TOKEN` lipsesc, funcția serverless sare peste trimiterea CAPI fără nicio eroare — formularul tot funcționează normal, doar fără urmărirea server-side. Numărul de telefon e trimis către Meta hash-uit (SHA-256), niciodată în clar.
+
 ## Ce trebuie înlocuit înainte de lansare (marcat clar în cod)
 
 1. **Numărul „10 consultații disponibile zilnic"** din banda galbenă de sub bara de sus (`.urgency-bar`, în `index.html`) — confirmați cifra reală de consultații pe care clinica le poate onora zilnic înainte de lansare.
 2. **„Valoare reală: 300 lei"** din secțiunea „Ce vei afla în cadrul consultației telefonice?" (`.call-value__price-label`, în `index.html`) — placeholder; confirmați valoarea reală a unei consultații similare plătite, pentru a susține argumentul „GRATUIT".
 3. **Secțiunea „Cum va decurge vizita ta?"** (`.visit`, în `index.html`) — cei 4 pași sunt o presupunere rezonabilă a fluxului unei consultații (primire, radiografie 3D, consult, plan + preț fix), fără fotografii reale din clinică (nu am avut poze reale disponibile, așa că am folosit iconițe în loc de poze stock care ar fi părut fals prezentate ca fiind clinica voastră). Confirmați că pașii descriși corespund fluxului real și, dacă vreți, înlocuiți iconițele cu fotografii reale din clinică.
+4. **`YOUR_PIXEL_ID`** din `index.html` (Meta Pixel, apare de 2 ori) — vezi secțiunea „Meta Pixel + Conversions API" de mai sus.
 
 Numărul de telefon (067 903 903), fotografiile, testimonialele, mesajul audio și videoclipul explicativ sunt deja cele reale/finale, furnizate de client.
 

@@ -159,16 +159,22 @@
     status.textContent = "";
     status.className = "lead-form__status";
 
+    // event_id comun între Pixel (browser) și CAPI (server), pentru deduplicare în Meta.
+    var eventId = "lead_" + Date.now() + "_" + Math.random().toString(36).slice(2);
+
     fetch("/api/submit-lead", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ nume: nume, telefon: telefon }),
+      body: JSON.stringify({ nume: nume, telefon: telefon, eventId: eventId }),
     })
       .then(function (res) {
         if (res.ok) {
           form.reset();
           status.textContent = "Mulțumim! Vă sunăm în cel mai scurt timp.";
           status.classList.add("lead-form__status--ok");
+          if (typeof fbq === "function") {
+            fbq("track", "Lead", {}, { eventID: eventId });
+          }
           return;
         }
         return res
