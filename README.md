@@ -14,6 +14,7 @@ Landing page static (HTML/CSS/JS, fără build step) pentru Centrul Implantologi
 - `assets/img/video-poster.jpg` — cadru poster pentru videoclipul explicativ.
 - `assets/video/dr-lazari-mesaj.mp4` — mesajul video real al Dr. Lazari, filmat la clinică (~77 sec). Transcodat din fișierul original (.mov/HEVC) în H.264/AAC. Înlocuiește mesajul audio inițial.
 - `assets/video/proteza-vs-dinti-ficsi.mp4` — video explicativ (proteză mobilă vs. dinți ficși pe implant), în secțiunea de comparație. Transcodat din fișierul original (.mov/HEVC) în H.264/AAC pentru compatibilitate universală în browser.
+- `assets/video/caz-{1-pret-fix,2-garantie,3-plata-rate}.mp4` + `assets/img/caz-{1,2,3}-poster.jpg` — 3 videoclipuri reale (filmate la clinică, format vertical) în care Dr. Lazari povestește cazuri reale de pacienți, folosite în secțiunea „Cazuri reale, explicate de Dr. Lazari". Transcodate din fișierele originale (.mov/HEVC) în H.264/AAC. Nu pornesc automat (doar mesajul din secțiunea medicului pornește automat) — vizitatorul apasă play.
 - `api/submit-lead.js` — funcție serverless Vercel; primește datele din formular și le trimite mai departe către Google Apps Script (URL-ul citit din variabila de mediu `GOOGLE_SCRIPT_URL`, niciodată expus în codul din browser).
 - `google-apps-script/Code.gs` — codul de lipit în Google Apps Script, care scrie fiecare trimitere de formular ca rând nou într-un Google Sheet.
 
@@ -59,6 +60,16 @@ Secțiunea medicului conține acum mesajul video real al Dr. Lazari (înainte er
 **Important:** niciun site nu poate garanta 100% pornirea automată cu sunet — Chrome și Safari blochează de obicei autoplay cu sunet la prima vizită a unui domeniu, indiferent de cod (politică de browser, nu ceva ce putem controla din site). Codul încearcă autoplay la încărcare; dacă browserul îl blochează, pornește automat la prima atingere/click/tastă de oriunde pe pagină — practic instant din perspectiva vizitatorului, fără să mai fie nevoie să caute butonul.
 
 Notă: specificațiile inițiale de brand recomandau ca pornirea să NU fie automată ("deranjează și consumă date"). Am implementat totuși autoplay, la cererea explicită ulterioară.
+
+## Cazuri reale, explicate de medic
+
+Secțiune nouă, plasată după testimoniale: 3 videoclipuri reale, filmate la clinică, în care Dr. Lazari povestește pe scurt cazuri concrete de pacienți (nu sunt testimoniale filmate de pacienți, ci cazuri explicate de medic — etichetate corect ca atare, nu prezentate drept recenzii spuse de pacient). Fiecare video are un „sticker" galben deasupra care marchează ideea centrală (argumentul de vânzare) al cazului respectiv:
+
+1. **Preț fix, chiar și în cazurile complicate** — caz cu implanturi zigomatice/pterigoidiene, refuzat la alte clinici din cauza costului; la CIC prețul a rămas fix.
+2. **Garanție reală, nu doar pe hârtie** — cazul domnului Ion: 2 implanturi refăcute gratuit după aproximativ 2 ani.
+3. **Plată în rate, adaptată la buget** — cazul doamnei Natalia: reabilitare totală, dinți definitivi într-un an, achitați treptat.
+
+Spre deosebire de mesajul medicului din secțiunea de mai sus, aceste 3 videoclipuri NU pornesc automat — au doar controale native, vizitatorul apasă play.
 
 ## Meta Pixel + Conversions API (CAPI)
 
