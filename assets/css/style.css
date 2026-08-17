@@ -687,6 +687,28 @@ a{color:inherit;}
   font-family:inherit;
 }
 .lead-form input:focus{outline:3px solid var(--black);border-color:var(--black);}
+.lead-form__consent{
+  display:flex;
+  align-items:flex-start;
+  gap:.65rem;
+  font-size:1rem;
+  font-weight:500;
+  line-height:1.4;
+  cursor:pointer;
+}
+.lead-form__consent input[type="checkbox"]{
+  flex-shrink:0;
+  width:26px;
+  height:26px;
+  min-height:0;
+  padding:0;
+  border:2px solid #c9c9c9;
+  border-radius:6px;
+  margin:.1rem 0 0;
+  accent-color:var(--black);
+  cursor:pointer;
+}
+.lead-form__consent a{color:var(--black);font-weight:800;text-decoration:underline;}
 .lead-form .btn{margin-top:.5rem;}
 .lead-form .btn:disabled{opacity:.7;cursor:default;}
 .lead-form__status{
@@ -740,6 +762,20 @@ a{color:inherit;}
   color:#333;
   line-height:1.5;
 }
+
+/* ---------- Pagină legală (politica de confidențialitate) ---------- */
+.legal{background:var(--white);padding:2.5rem 1.25rem 4rem;}
+.legal__inner{max-width:640px;margin:0 auto;}
+.legal__title{font-size:clamp(1.6rem,3vw + 1rem,2.1rem);font-weight:900;color:var(--black);margin-bottom:.4rem;}
+.legal__updated{color:var(--gray-mid);font-size:.95rem;font-weight:600;margin-bottom:1.75rem;}
+.legal h2{font-size:1.3rem;font-weight:800;color:var(--black);margin:1.75rem 0 .6rem;}
+.legal p{font-size:1.05rem;color:#2b2b2b;line-height:1.6;margin-bottom:1rem;}
+.legal ul{margin:0 0 1rem;padding-left:1.4rem;}
+.legal li{font-size:1.05rem;color:#2b2b2b;line-height:1.6;margin-bottom:.4rem;}
+.legal__contact{background:var(--gray-light);border-radius:var(--radius);padding:1.1rem 1.25rem;}
+.legal__contact a{color:var(--black);font-weight:800;text-decoration:underline;}
+.legal__note{color:var(--gray-mid);font-size:.95rem;}
+.legal__back{display:inline-block;color:var(--black);font-weight:800;text-decoration:underline;margin-top:.5rem;}
 
 /* ---------- Footer ---------- */
 .footer{background:var(--black);color:var(--white);padding:2.5rem 1.25rem;text-align:center;}

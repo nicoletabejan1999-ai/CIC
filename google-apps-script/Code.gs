@@ -24,7 +24,8 @@ function doPost(e) {
     new Date(),
     data.nume || "",
     data.telefon || "",
-    data.sursa || ""
+    data.sursa || "",
+    data.consimtamant === true ? "DA" : "NU"
   ]);
 
   return ContentService

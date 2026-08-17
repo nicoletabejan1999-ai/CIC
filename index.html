@@ -447,7 +447,12 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
         <label for="telefon">Telefon</label>
         <input type="tel" id="telefon" name="telefon" autocomplete="tel" inputmode="tel" required>
 
-        <button type="submit" class="btn btn--cta btn--full">Programează un apel gratuit</button>
+        <label class="lead-form__consent" for="consimtamant">
+          <input type="checkbox" id="consimtamant" name="consimtamant" required>
+          <span>Sunt de acord cu prelucrarea datelor mele conform <a href="politica-de-confidentialitate.html" target="_blank" rel="noopener">Politicii de confidențialitate</a>.</span>
+        </label>
+
+        <button type="submit" class="btn btn--cta btn--full" id="leadFormSubmit" disabled>Programează un apel gratuit</button>
         <p class="lead-form__status" id="leadFormStatus" role="status" aria-live="polite"></p>
       </form>
     </div>

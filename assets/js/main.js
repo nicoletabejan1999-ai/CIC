@@ -146,15 +146,25 @@
   var status = document.getElementById("leadFormStatus");
   if (!form || !status) return;
 
-  var button = form.querySelector("button[type=submit]");
+  var button = document.getElementById("leadFormSubmit");
+  var consimtamant = document.getElementById("consimtamant");
   var idleLabel = button.textContent;
+
+  // Butonul rămâne dezactivat până când vizitatorul bifează consimțământul.
+  function syncButtonState() {
+    button.disabled = !consimtamant.checked;
+  }
+  if (consimtamant) {
+    consimtamant.addEventListener("change", syncButtonState);
+    syncButtonState();
+  }
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
     var nume = form.nume.value.trim();
     var telefon = form.telefon.value.trim();
-    if (!nume || !telefon) return;
+    if (!nume || !telefon || !consimtamant.checked) return;
 
     button.disabled = true;
     button.textContent = "Se trimite…";
@@ -167,7 +177,7 @@
     fetch("/api/submit-lead", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ nume: nume, telefon: telefon, eventId: eventId }),
+      body: JSON.stringify({ nume: nume, telefon: telefon, consimtamant: consimtamant.checked, eventId: eventId }),
     })
       .then(function (res) {
         if (res.ok) {
@@ -193,8 +203,8 @@
         status.classList.add("lead-form__status--error");
       })
       .finally(function () {
-        button.disabled = false;
         button.textContent = idleLabel;
+        syncButtonState();
       });
   });
 })();

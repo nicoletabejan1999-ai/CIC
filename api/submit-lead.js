@@ -67,9 +67,13 @@ module.exports = async (req, res) => {
     return;
   }
 
-  const { nume, telefon, eventId } = req.body || {};
+  const { nume, telefon, consimtamant, eventId } = req.body || {};
   if (!nume || !telefon || typeof nume !== "string" || typeof telefon !== "string") {
     res.status(400).json({ error: "Nume și telefon sunt obligatorii" });
+    return;
+  }
+  if (consimtamant !== true) {
+    res.status(400).json({ error: "Este necesar consimțământul pentru prelucrarea datelor" });
     return;
   }
 
@@ -89,6 +93,7 @@ module.exports = async (req, res) => {
         telefon: telefon.trim().slice(0, 50),
         sursa: "landing page CIC",
         data: new Date().toISOString(),
+        consimtamant: true,
       }),
     });
 
