@@ -776,6 +776,12 @@ a{color:inherit;}
 .legal__contact a{color:var(--black);font-weight:800;text-decoration:underline;}
 .legal__note{color:var(--gray-mid);font-size:.95rem;}
 .legal__back{display:inline-block;color:var(--black);font-weight:800;text-decoration:underline;margin-top:.5rem;}
+.legal__table-wrap{overflow-x:auto;margin-bottom:1rem;-webkit-overflow-scrolling:touch;}
+.legal__table{width:100%;min-width:480px;border-collapse:collapse;font-size:.98rem;}
+.legal__table th,.legal__table td{text-align:left;padding:.75rem .9rem;border:1px solid #e2e2e2;line-height:1.5;}
+.legal__table th{background:var(--gray-light);font-weight:800;color:var(--black);}
+.legal__table td{color:#2b2b2b;}
+.legal__table td:first-child{font-weight:700;white-space:nowrap;}
 
 /* ---------- Footer ---------- */
 .footer{background:var(--black);color:var(--white);padding:2.5rem 1.25rem;text-align:center;}

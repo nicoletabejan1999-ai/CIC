@@ -5,7 +5,7 @@ Landing page static (HTML/CSS/JS, fără build step) pentru Centrul Implantologi
 ## Structură
 
 - `index.html` — pagina completă, secțiune cu secțiune conform documentului de specificații.
-- `politica-de-confidentialitate.html` — pagină simplă cu politica de confidențialitate, spre care duce link-ul din caseta de consimțământ a formularului. Text generic, de revizuit de un jurist înainte de lansare.
+- `politica-de-confidentialitate.html` — Politica de Confidențialitate și Module Cookie, spre care duce link-ul din caseta de consimțământ a formularului. Text oficial, primit de la client (SRL CIC CLINIC), conform Legii RM nr. 133/2011 și GDPR.
 - `assets/css/style.css` — stiluri (culori de brand, tipografie mare, layout mobil-first).
 - `assets/js/main.js` — logica butonului audio (play/pause).
 - `assets/logo-cic.png` — logo-ul oficial CIC, decupat cerc din fotografia atașată, fundal transparent.
@@ -59,7 +59,7 @@ După acești pași, fiecare trimitere din formularul de pe pagină apare ca râ
 Formularul are o casetă de bifat (nebifată implicit) cu textul „Sunt de acord cu prelucrarea datelor mele conform Politicii de confidențialitate." Butonul „Programează un apel gratuit" rămâne dezactivat până când vizitatorul bifează caseta. Consimțământul e trimis mai departe, la fel ca numele și telefonul:
 - În `api/submit-lead.js`, cererea e respinsă cu eroare 400 dacă `consimtamant` nu e `true` (validare și pe server, nu doar în browser).
 - În Google Sheet apare o coloană nouă, `Consimțământ` (DA/NU), pe lângă Dată / Nume / Telefon / Sursă — dacă foaia are deja rânduri vechi dintr-o versiune anterioară a formularului, acestea nu au coloana asta completată retroactiv.
-- Link-ul din text duce la `politica-de-confidentialitate.html` (pagină nouă, inclusă în acest repo) — text generic, de completat/verificat cu un jurist înainte de lansare (vezi și secțiunea „Ce trebuie înlocuit înainte de lansare" de mai jos).
+- Link-ul din text duce la `politica-de-confidentialitate.html` — conține textul oficial primit de la client (SRL CIC CLINIC), transcris ca atare din documentul furnizat.
 
 ## Mesajul video al medicului — pornire automată
 
@@ -102,9 +102,8 @@ Dacă `FB_PIXEL_ID` / `FB_CAPI_ACCESS_TOKEN` lipsesc, funcția serverless sare p
 2. **„Valoare reală: 300 lei"** din secțiunea „Ce vei afla în cadrul consultației telefonice?" (`.call-value__price-label`, în `index.html`) — placeholder; confirmați valoarea reală a unei consultații similare plătite, pentru a susține argumentul „GRATUIT".
 3. **Secțiunea „Cum va decurge vizita ta?"** (`.visit`, în `index.html`) — cei 4 pași sunt o presupunere rezonabilă a fluxului unei consultații (primire, radiografie 3D, consult, plan + preț fix), fără fotografii reale din clinică (nu am avut poze reale disponibile, așa că am folosit iconițe în loc de poze stock care ar fi părut fals prezentate ca fiind clinica voastră). Confirmați că pașii descriși corespund fluxului real și, dacă vreți, înlocuiți iconițele cu fotografii reale din clinică.
 4. **`YOUR_PIXEL_ID`** din `index.html` (Meta Pixel, apare de 2 ori) — vezi secțiunea „Meta Pixel + Conversions API" de mai sus.
-5. **`politica-de-confidentialitate.html`** — text generic de confidențialitate, scris ca punct de plecare, nu ca text juridic final. Trebuie verificat/completat de un jurist (sau de persoana responsabilă cu protecția datelor) înainte de lansare, mai ales secțiunile despre perioada de păstrare a datelor și eventualii terți cu care se partajează date (Google, Meta).
 
-Numărul de telefon (067 903 903), fotografiile, testimonialele, mesajul audio și videoclipul explicativ sunt deja cele reale/finale, furnizate de client.
+Numărul de telefon (067 903 903), fotografiile, testimonialele, mesajul audio, videoclipul explicativ și textul politicii de confidențialitate (`politica-de-confidentialitate.html`) sunt deja cele reale/finale, furnizate de client.
 
 ## Verificare rapidă locală
 
