@@ -713,6 +713,35 @@ a{color:inherit;}
 }
 .footer__address{color:#cfcfcf;font-size:1rem;}
 
+/* ---------- Buton audio flotant (permanent) ---------- */
+.audio-fab{
+  position:fixed;
+  left:16px;
+  bottom:20px;
+  z-index:70;
+  width:56px;height:56px;
+  border-radius:50%;
+  background:var(--black);
+  color:var(--yellow);
+  border:2px solid var(--yellow);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 4px 14px rgba(0,0,0,.35);
+  cursor:pointer;
+  padding:0;
+}
+.audio-fab[hidden]{display:none;}
+.audio-fab svg{width:26px;height:26px;}
+.audio-fab__icon-pause{display:none;}
+.audio-fab[aria-pressed="true"] .audio-fab__icon-pause{display:block;}
+.audio-fab[aria-pressed="true"] .audio-fab__icon-play{display:none;}
+.audio-fab:focus-visible{outline:3px solid var(--yellow);outline-offset:2px;}
+
+@media (max-width:640px){
+  .audio-fab{bottom:96px;}
+}
+
 /* ---------- Bară fixă mobil ---------- */
 .mobile-sticky{
   display:none;

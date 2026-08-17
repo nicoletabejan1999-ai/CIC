@@ -153,8 +153,8 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
         </svg>
         <span id="audioLabel">Ascultă un mesaj de la Dr. Lazari</span>
       </button>
-      <p class="audio-module__hint">Apasă pentru a asculta — pornirea nu este automată.</p>
-      <audio id="drAudio" preload="none">
+      <p class="audio-module__hint">Mesajul pornește automat. Îl poți opri oricând de aici sau din colțul din stânga jos.</p>
+      <audio id="drAudio" preload="auto">
         <source src="assets/audio/dr-lazari-mesaj.mp3" type="audio/mpeg">
         Browserul dumneavoastră nu suportă redarea audio.
       </audio>
@@ -457,6 +457,12 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
     <p class="footer__address">Chișinău, Republica Moldova</p>
   </div>
 </footer>
+
+<!-- ===== BUTON AUDIO FLOTANT (permanent, colț stânga jos) ===== -->
+<button type="button" id="audioFab" class="audio-fab" aria-pressed="false" aria-label="Oprește mesajul audio de la Dr. Lazari" hidden>
+  <svg class="audio-fab__icon-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor"/></svg>
+  <svg class="audio-fab__icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5l12 7-12 7V5z" fill="currentColor"/></svg>
+</button>
 
 <!-- ===== BARĂ FIXĂ MOBIL ===== -->
 <div class="mobile-sticky">

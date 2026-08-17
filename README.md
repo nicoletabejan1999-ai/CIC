@@ -52,6 +52,14 @@ După acești pași, fiecare trimitere din formularul de pe pagină apare ca râ
 
 **Notă:** dacă site-ul rămâne găzduit pe GitHub Pages (fără server), funcția din `api/` nu va rula — GitHub Pages servește doar fișiere statice. Pentru ca formularul să funcționeze cu adevărat, site-ul trebuie găzduit pe Vercel (sau alt hosting cu suport pentru funcții serverless).
 
+## Mesajul audio — pornire automată
+
+Mesajul Dr. Lazari pornește acum automat la încărcarea paginii, cu un buton flotant permanent în colțul stânga jos (peste tot pe pagină) ca vizitatorul să-l poată opri oricând, plus butonul original din secțiunea medicului.
+
+**Important:** niciun site nu poate garanta 100% pornirea automată cu sunet — Chrome și Safari blochează de obicei autoplay cu sunet la prima vizită a unui domeniu, indiferent de cod (politică de browser, nu ceva ce putem controla din site). Codul încearcă autoplay la încărcare; dacă browserul îl blochează, pornește automat la prima atingere/click/tastă de oriunde pe pagină — practic instant din perspectiva vizitatorului, fără să mai fie nevoie să caute butonul.
+
+Notă: specificațiile inițiale de brand recomandau ca pornirea să NU fie automată ("deranjează și consumă date"). Am implementat totuși autoplay, la cererea explicită ulterioară.
+
 ## Meta Pixel + Conversions API (CAPI)
 
 Pagina trimite evenimentul „Lead" (cineva a completat formularul) atât din browser (Pixel), cât și direct de pe server (CAPI) — dublă urmărire, recomandată de Meta, cu deduplicare automată prin același `event_id` trimis pe ambele căi. Sunt două lucruri diferite, din locuri diferite:
