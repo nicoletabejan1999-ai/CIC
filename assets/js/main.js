@@ -148,11 +148,14 @@
 
   var button = document.getElementById("leadFormSubmit");
   var consimtamant = document.getElementById("consimtamant");
+  var hint = document.getElementById("leadFormHint");
   var idleLabel = button.textContent;
 
-  // Butonul rămâne dezactivat până când vizitatorul bifează consimțământul.
+  // Butonul rămâne dezactivat până când vizitatorul bifează consimțământul;
+  // textul explicativ dispare imediat ce nu mai e nevoie de el.
   function syncButtonState() {
     button.disabled = !consimtamant.checked;
+    if (hint) hint.hidden = consimtamant.checked;
   }
   if (consimtamant) {
     consimtamant.addEventListener("change", syncButtonState);
