@@ -16,7 +16,7 @@ Landing page static (HTML/CSS/JS, fără build step) pentru Centrul Implantologi
 - `assets/video/dr-lazari-mesaj.mp4` — mesajul video real al Dr. Lazari, filmat la clinică (~77 sec). Transcodat din fișierul original (.mov/HEVC) în H.264/AAC. Înlocuiește mesajul audio inițial.
 - `assets/video/proteza-vs-dinti-ficsi.mp4` — video explicativ (proteză mobilă vs. dinți ficși pe implant), în secțiunea de comparație. Transcodat din fișierul original (.mov/HEVC) în H.264/AAC pentru compatibilitate universală în browser.
 - `assets/video/caz-{1-pret-fix,2-garantie,3-plata-rate}.mp4` + `assets/img/caz-{1,2,3}-poster.jpg` — 3 videoclipuri reale (filmate la clinică, format vertical) în care Dr. Lazari povestește cazuri reale de pacienți, folosite în secțiunea „Cazuri reale, explicate de Dr. Lazari". Transcodate din fișierele originale (.mov/HEVC) în H.264/AAC. Nu pornesc automat (doar mesajul din secțiunea medicului pornește automat) — vizitatorul apasă play.
-- `api/submit-lead.js` — funcție serverless Vercel; primește datele din formular și le trimite mai departe către Google Apps Script (URL-ul citit din variabila de mediu `GOOGLE_SCRIPT_URL`, niciodată expus în codul din browser).
+- `api/submit-lead.js` — funcție serverless Vercel; primește datele din formular și le trimite mai departe către Google Apps Script (URL-ul citit din variabila de mediu `GOOGLE_SCRIPT_URL`, niciodată expus în codul din browser), plus, best-effort, către Meta CAPI și Kommo CRM.
 - `google-apps-script/Code.gs` — codul de lipit în Google Apps Script, care scrie fiecare trimitere de formular ca rând nou într-un Google Sheet.
 
 ## Culori de brand (confirmate)
@@ -95,6 +95,35 @@ Pagina trimite evenimentul „Lead" (cineva a completat formularul) atât din br
 3. Redeploy.
 
 Dacă `FB_PIXEL_ID` / `FB_CAPI_ACCESS_TOKEN` lipsesc, funcția serverless sare peste trimiterea CAPI fără nicio eroare — formularul tot funcționează normal, doar fără urmărirea server-side. Numărul de telefon e trimis către Meta hash-uit (SHA-256), niciodată în clar.
+
+## Kommo (integrare best-effort)
+
+Fiecare trimitere de formular validă (nume + telefon + consimțământ) creează, în paralel cu rândul din Google Sheets, un lead + un contact legat în Kommo (CRM-ul folosit de echipă pentru a lucra efectiv lead-ul — pipeline, statusuri, apeluri). Exact ca la Meta CAPI: dacă Kommo nu e configurat încă, sau apelul eșuează din orice motiv (cont picat, token expirat, rețea), formularul tot funcționează normal — Google Sheets rămâne singurul semnal „a mers/n-a mers" arătat vizitatorului, Kommo nu apare niciodată într-un mesaj de eroare pe site.
+
+**1. Configurare în Kommo** (o singură dată, are nevoie de cineva cu drept de admin pe contul Kommo al clinicii — poate fi trimis ca listă de pași cuiva din echipă/IT, fără să fie nevoie de acces la cod):
+1. Autentificați-vă în Kommo ca administrator al contului.
+2. `Settings` (iconița roată din meniul din stânga) → `Integrations`.
+3. Butonul „Create Integration" → alegeți tipul de integrare privată (nu e nevoie de Redirect URL/OAuth pentru acest caz).
+4. Denumiți-o ceva ușor de recunoscut, ex. „CIC Landing Page".
+5. Salvați, apoi redeschideți integrarea din listă.
+6. Tab-ul „Keys and scopes".
+7. Butonul „Generate long-lived token".
+8. Alegeți cea mai lungă expirare disponibilă (până la 5 ani) — cu cât mai lungă, cu atât mai rar trebuie repetați acești pași.
+9. Copiați token-ul imediat (Kommo îl arată o singură dată) și păstrați-l undeva sigur (manager de parole), apoi trimiteți-l dezvoltatorului.
+10. Notați și subdomeniul contului din bara de adrese a browserului — dacă URL-ul e `https://cic.kommo.com/...`, subdomeniul e `cic`. Trimiteți-l alături de token.
+11. Puneți-vă o notificare/reminder cu ~1 lună înainte de expirarea token-ului — la expirare, integrarea se oprește silențios (vezi mai jos unde se verifică).
+
+**2. Configurare în Vercel**
+1. `Project Settings → Environment Variables` → adăugați:
+   - `KOMMO_SUBDOMAIN` — subdomeniul notat mai sus (doar atât, nu URL-ul întreg)
+   - `KOMMO_ACCESS_TOKEN` — token-ul generat mai sus
+2. Redeploy.
+
+**Ce NU face v1:** numărul de telefon nu e stocat într-un câmp structurat/căutabil din Kommo (doar text liber, în numele lead-ului și al contactului) — suficient ca staff-ul să-l vadă și să sune, dar nu pentru căutare/deduplicare automată în Kommo. Dacă aceeași persoană trimite formularul de mai multe ori, apar lead-uri separate în Kommo, nu se unesc automat. O mapare pe un câmp de telefon structurat (`field_id`, specific fiecărui cont Kommo — se găsește în `Settings` → câmpurile de la Leads/Contacts, sau prin API la `GET /api/v4/contacts/custom_fields`) rămâne un upgrade opțional pentru mai târziu.
+
+**Cum verificați că funcționează:** trimiteți un lead de test real de pe site, apoi căutați în pipeline-ul implicit din Kommo un lead nou numit „Nume — Telefon", cu eticheta „Landing CIC".
+
+**Unde verificați erorile:** Vercel → proiect → Deployments → function logs, căutați liniile care încep cu `[kommo]`.
 
 ## Ce trebuie înlocuit înainte de lansare (marcat clar în cod)
 
