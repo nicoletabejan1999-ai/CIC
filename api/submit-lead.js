@@ -129,6 +129,10 @@ module.exports = async (req, res) => {
     res.status(400).json({ error: "Nume și telefon sunt obligatorii" });
     return;
   }
+  if (normalizePhone(telefon).length < 8) {
+    res.status(400).json({ error: "Numărul de telefon nu este valid" });
+    return;
+  }
   if (consimtamant !== true) {
     res.status(400).json({ error: "Este necesar consimțământul pentru prelucrarea datelor" });
     return;

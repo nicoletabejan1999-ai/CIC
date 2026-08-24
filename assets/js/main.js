@@ -169,6 +169,14 @@
     var telefon = form.telefon.value.trim();
     if (!nume || !telefon || !consimtamant.checked) return;
 
+    // Numărul e obligatoriu ca lead-ul să fie transmis mai departe — un șir prea scurt
+    // de cifre (mai puțin de 8) e aproape sigur un număr incomplet/greșit introdus.
+    if (telefon.replace(/\D/g, "").length < 8) {
+      status.textContent = "Introduceți un număr de telefon valid.";
+      status.classList.add("lead-form__status--error");
+      return;
+    }
+
     button.disabled = true;
     button.textContent = "Se trimite…";
     status.textContent = "";

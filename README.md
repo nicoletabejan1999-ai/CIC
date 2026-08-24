@@ -61,6 +61,8 @@ Formularul are o casetă de bifat (nebifată implicit) cu textul „Sunt de acor
 - În Google Sheet apare o coloană nouă, `Consimțământ` (DA/NU), pe lângă Dată / Nume / Telefon / Sursă — dacă foaia are deja rânduri vechi dintr-o versiune anterioară a formularului, acestea nu au coloana asta completată retroactiv.
 - Link-ul din text duce la `politica-de-confidentialitate.html` — conține textul oficial primit de la client (SRL CIC CLINIC), transcris ca atare din documentul furnizat.
 
+**Numărul de telefon e obligatoriu ca lead-ul să fie transmis** — nu doar „prezent", ci și valid: dacă, după eliminarea a tot ce nu e cifră, rămân mai puțin de 8 cifre (un număr incomplet sau evident greșit), formularul nu se trimite nicăieri (nici Google Sheets, nici CAPI, nici Kommo). Validarea e dublă, ca la consimțământ: în `assets/js/main.js` (mesaj imediat „Introduceți un număr de telefon valid.", fără să mai facă vreo cerere către server) și, ca ultimă barieră, în `api/submit-lead.js` (eroare 400 dacă cineva ocolește JS-ul din browser).
+
 ## Mesajul video al medicului — pornire automată
 
 Secțiunea medicului conține acum mesajul video real al Dr. Lazari (înainte era doar audio) — se redă cu controale native (play/pauză/volum/fullscreen), pornește automat la încărcarea paginii, și există un buton flotant permanent în colțul stânga jos (peste tot pe pagină) ca vizitatorul să-l poată opri oricând, indiferent unde a scrolat.
