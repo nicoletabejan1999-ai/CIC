@@ -1,0 +1,17 @@
+name: CIC RU banner transfer
+on:
+  push:
+    branches:
+      - chatgpt/v3-drive-transfer-20261005
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download RU dubbed banner
+        run: curl -fL 'https://resource2.heygen.ai/video_translate/6561cb3122a0413dadffe5289ba0760d-ru/original.mp4' -o CIC-banner-RU-dubbed.mp4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cic-banner-ru-dubbed
+          path: CIC-banner-RU-dubbed.mp4
+          compression-level: 0
+          retention-days: 1
