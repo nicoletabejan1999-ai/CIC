@@ -153,7 +153,7 @@ Pagină separată, construită după documentul „CIC New Landing Page — Buil
 5. Blocul 10 — fotografiile diplomelor și certificatelor Dr. Lazari.
 6. Blocul 11 — o scurtă biografie confirmată a medicului (sau și a echipei).
 7. Blocul 13 — anii de activitate, dacă vreți o a 5-a cifră.
-8. Blocul 14 — capturi ale recenziilor reale de pe Google / Facebook.
+8. Blocul 14 — conține acum cele 3 recenzii de pe pagina principală (Ion C., Vera P., Gheorghe M.); specificația cere ideal capturi reale de pe Google / Facebook, care se pot adăuga alături.
 9. Subsolul — adresa exactă și programul de lucru.
 10. `YOUR_PIXEL_ID` (apare de 2 ori), ca pe pagina principală.
 

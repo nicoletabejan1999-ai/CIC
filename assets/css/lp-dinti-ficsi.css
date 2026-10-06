@@ -374,13 +374,19 @@ svg{display:block;}
 
 /* ---------- 14. Recenzii ---------- */
 .reviews{display:grid;gap:1rem;margin-top:2.25rem;}
-.review{border-radius:14px;overflow:hidden;background:var(--white);box-shadow:0 2px 14px rgba(0,0,0,.06);}
-.review img{width:100%;height:auto;}
-.review--placeholder{
-  display:flex;align-items:center;justify-content:center;min-height:180px;
-  border:2px dashed #c9c9c9;box-shadow:none;color:#8a8a8a;font-weight:700;font-size:.9rem;text-align:center;padding:1rem;
+.review{
+  display:flex;flex-direction:column;gap:.9rem;
+  background:var(--white);border-radius:var(--radius);padding:1.6rem 1.4rem;
+  box-shadow:0 2px 14px rgba(0,0,0,.06);
 }
-@media (min-width:760px){.reviews{grid-template-columns:repeat(3,1fr);gap:1.25rem;align-items:start;}}
+.review img{width:100%;height:auto;border-radius:10px;}
+.review__stars{color:var(--black);font-size:1.15rem;letter-spacing:.12em;}
+.review__quote{margin:0;font-size:1.02rem;line-height:1.55;}
+.review__author{
+  margin-top:auto;padding-top:.9rem;border-top:3px solid var(--yellow);
+  font-family:var(--head);font-weight:800;font-size:.95rem;
+}
+@media (min-width:760px){.reviews{grid-template-columns:repeat(3,1fr);gap:1.25rem;}}
 
 /* ---------- 15. Întrebări frecvente ---------- */
 .faq{margin-top:2rem;border-top:2px solid var(--black);}
