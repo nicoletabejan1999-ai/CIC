@@ -150,7 +150,7 @@ Pagină separată, construită după documentul „CIC New Landing Page — Buil
 2. Blocul 2 — imaginile din carduri sunt ilustrații provizorii; trebuie fotografii reale ale pacienților (cu acord). Cardurile duc deocamdată la formular; dacă există ghiduri PDF pentru fiecare situație, se pot lega acolo.
 3. Blocul 4 — tipul de anestezie / sedare folosit efectiv.
 4. Blocul 6 — deocamdată cazuri povestite de medic; de adăugat videoclipuri cu pacienții (prenume, vârstă, context).
-5. Blocul 10 — are acum 3 diplome reale (`assets/img/diplome/`); altele se adaugă copiind un `<figure class="diploma">`.
+5. Blocul 10 — are acum 4 diplome reale (`assets/img/diplome/`); altele se adaugă copiind un `<figure class="diploma">`.
 6. Blocul 11 — o scurtă biografie confirmată a medicului (sau și a echipei).
 7. Blocul 13 — anii de activitate, dacă vreți o a 5-a cifră.
 8. Blocul 14 — conține acum cele 3 recenzii de pe pagina principală (Ion C., Vera P., Gheorghe M.); specificația cere ideal capturi reale de pe Google / Facebook, care se pot adăuga alături.
