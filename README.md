@@ -134,7 +134,7 @@ Pagină separată, construită după documentul „CIC New Landing Page — Buil
 - `dinti-ficsi/index.html` — pagina; adresa publică va fi `/dinti-ficsi/`.
 - `assets/css/lp-dinti-ficsi.css` — stiluri proprii (hero negru, alternanță negru / gri / galben, două coloane pe ecrane mari, font Montserrat pentru titluri).
 - `assets/js/lp-dinti-ficsi.js` — glisoare înainte/după, derularea diplomelor, precompletarea mesajului din cardurile „pentru tine, dacă…”, evenimentele Meta, formularul.
-- `assets/img/lp/` — cadre reale extrase din videoclipurile clinicii (sala de operații, cabinet, tomografie 3D, recepție), fără subtitrări.
+- `assets/img/lp/` — cadre reale extrase din videoclipurile clinicii (sala de operații; pentru cei 3 pași: planul pe radiografie, lucrul la provizorii, coroanele finale pe implanturi), fără subtitrări.
 
 **Urmărire evenimente (Meta):**
 - `Contact` — la orice clic pe telefon sau WhatsApp (toate elementele cu `data-contact`: bara de sus, hero, oferta finală, subsol, butoanele flotante). Numele butonului e trimis în `content_name`.
