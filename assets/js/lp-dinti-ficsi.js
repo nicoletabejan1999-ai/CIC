@@ -85,6 +85,16 @@
     }
     if (prev) prev.addEventListener("click", function () { step(-1); });
     if (next) next.addEventListener("click", function () { step(1); });
+
+    // Săgețile apar doar când chiar e ceva de derulat (pe ecran lat, 3 diplome încap toate).
+    function syncButtons() {
+      var scrollable = track.scrollWidth > track.clientWidth + 4;
+      if (prev) prev.hidden = !scrollable;
+      if (next) next.hidden = !scrollable;
+    }
+    syncButtons();
+    window.addEventListener("resize", syncButtons);
+    window.addEventListener("load", syncButtons);
   });
 })();
 

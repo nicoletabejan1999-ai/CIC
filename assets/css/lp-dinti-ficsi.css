@@ -309,24 +309,25 @@ svg{display:block;}
   display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;
   padding-bottom:.75rem;scrollbar-width:thin;
 }
-.diploma{
-  flex:0 0 78%;scroll-snap-align:start;
-  aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:var(--white);
+.diploma{flex:0 0 82%;scroll-snap-align:start;display:flex;flex-direction:column;gap:.8rem;}
+.diploma__img{
+  display:block;aspect-ratio:4/3;border-radius:14px;overflow:hidden;
+  background:var(--white);box-shadow:0 2px 14px rgba(0,0,0,.08);
+  cursor:zoom-in;transition:transform .15s;
 }
-.diploma img{width:100%;height:100%;object-fit:contain;}
-.diploma--placeholder{
-  display:flex;align-items:center;justify-content:center;text-align:center;
-  border:2px dashed #c9c9c9;color:#8a8a8a;font-weight:700;font-size:.9rem;
-}
+.diploma__img:hover,.diploma__img:focus-visible{transform:translateY(-2px);}
+.diploma__img img{width:100%;height:100%;object-fit:cover;}
+.diploma figcaption{font-size:.88rem;color:var(--muted);line-height:1.45;}
+.diploma figcaption strong{display:block;color:var(--black);font-family:var(--head);font-size:.95rem;margin-bottom:.2rem;}
 .hscroll__btn{
-  display:none;position:absolute;top:calc(50% - .375rem);transform:translateY(-50%);
+  display:none;position:absolute;top:calc(50% - 3rem);transform:translateY(-50%);
   width:48px;height:48px;border-radius:50%;border:none;cursor:pointer;
   background:var(--black);color:var(--white);font-size:1.6rem;line-height:1;
 }
 .hscroll__btn--prev{left:-12px;}
 .hscroll__btn--next{right:-12px;}
 @media (min-width:700px){.diploma{flex-basis:calc((100% - 2rem)/3);}}
-@media (min-width:900px){.hscroll__btn{display:block;}}
+@media (min-width:900px){.hscroll__btn{display:block;}.hscroll__btn[hidden]{display:none;}}
 
 /* ---------- 11. Medicul ---------- */
 .doctor{display:grid;gap:2rem;align-items:center;}
