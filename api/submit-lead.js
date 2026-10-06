@@ -15,6 +15,13 @@ function normalizePhone(raw) {
   return digits;
 }
 
+// Sursa scrisă în Google Sheets / Kommo, după pagina de pe care vine formularul.
+// Listă închisă — nu scriem niciodată în foaie un text venit direct din browser.
+const SURSE = {
+  "dinti-ficsi": { sursa: "landing dinți ficși 4 zile", tag: "Landing dinți ficși" },
+};
+const SURSA_IMPLICITA = { sursa: "landing page CIC", tag: "Landing CIC" };
+
 function sha256(value) {
   return crypto.createHash("sha256").update(value).digest("hex");
 }
@@ -56,7 +63,7 @@ async function sendToCapi({ telefon, eventId, req }) {
   }
 }
 
-async function sendToKommo({ nume, telefon, eventId }) {
+async function sendToKommo({ nume, telefon, eventId, tag }) {
   const subdomain = process.env.KOMMO_SUBDOMAIN;
   const token = process.env.KOMMO_ACCESS_TOKEN;
 
@@ -86,7 +93,7 @@ async function sendToKommo({ nume, telefon, eventId }) {
         name: nume + " — " + telefon,
         _embedded: {
           contacts: [{ first_name: nume }],
-          tags: [{ name: "Landing CIC" }],
+          tags: [{ name: tag }],
         },
       },
     ];
@@ -124,7 +131,9 @@ module.exports = async (req, res) => {
     return;
   }
 
-  const { nume, telefon, consimtamant, eventId } = req.body || {};
+  const { nume, telefon, consimtamant, eventId, mesaj, pagina } = req.body || {};
+  const sursa = (typeof pagina === "string" && Object.prototype.hasOwnProperty.call(SURSE, pagina)) ? SURSE[pagina] : SURSA_IMPLICITA;
+  const mesajCurat = typeof mesaj === "string" ? mesaj.trim().slice(0, 1000) : "";
   if (!nume || !telefon || typeof nume !== "string" || typeof telefon !== "string") {
     res.status(400).json({ error: "Nume și telefon sunt obligatorii" });
     return;
@@ -145,7 +154,7 @@ module.exports = async (req, res) => {
   const capiPromise = sendToCapi({ telefon, eventId: eventIdOrDefault, req }).catch(function (err) {
     console.error("Trimiterea către Meta CAPI a eșuat:", err && err.message);
   });
-  const kommoPromise = sendToKommo({ nume, telefon, eventId: eventIdOrDefault }).catch(function (err) {
+  const kommoPromise = sendToKommo({ nume, telefon, eventId: eventIdOrDefault, tag: sursa.tag }).catch(function (err) {
     console.error("[kommo] eroare neprinsă:", err && err.message);
   });
 
@@ -156,9 +165,10 @@ module.exports = async (req, res) => {
       body: JSON.stringify({
         nume: nume.trim().slice(0, 200),
         telefon: telefon.trim().slice(0, 50),
-        sursa: "landing page CIC",
+        sursa: sursa.sursa,
         data: new Date().toISOString(),
         consimtamant: true,
+        mesaj: mesajCurat,
       }),
     });
 

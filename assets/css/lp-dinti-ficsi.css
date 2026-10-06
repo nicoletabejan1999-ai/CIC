@@ -1,0 +1,482 @@
+/* =========================================================
+   CIC — pagina „Dinți ficși în 4 zile” (/dinti-ficsi/)
+   Pagină separată de index.html, cu stil propriu: hero negru, ritm
+   alternant negru / gri / galben, așezare pe două coloane pe ecrane mari.
+   Brand: negru #111111 · galben #FCD307 · alb · gri deschis #F4F4F4
+   Regulă: NICIODATĂ text galben pe alb sau text alb pe galben.
+   ========================================================= */
+
+:root{
+  --black:#111111;
+  --ink:#1c1c1c;
+  --yellow:#FCD307;
+  --yellow-dark:#e6bd00;
+  --white:#FFFFFF;
+  --gray:#F4F4F4;
+  --gray-line:#e2e2e2;
+  --muted:#5c5c5c;
+  --muted-light:#b9b9b9;
+  --wa:#25D366;
+  --radius:18px;
+  --head:"Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  --body:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+*{box-sizing:border-box;}
+html{font-size:18px;scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:var(--body);
+  color:var(--black);
+  background:var(--white);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img,video{max-width:100%;display:block;}
+h1,h2,h3,p,ul,ol,figure{margin:0;}
+ul,ol{padding:0;list-style:none;}
+a{color:inherit;}
+svg{display:block;}
+
+#formular{scroll-margin-top:64px;}
+.wrap{max-width:1140px;margin:0 auto;padding:0 16px;}
+.wrap--narrow{max-width:680px;}
+@media (min-width:600px){.wrap{padding:0 24px;}}
+
+/* ---------- Butoane ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
+  min-height:60px;padding:1rem 1.75rem;
+  font-family:var(--head);font-size:1.02rem;font-weight:800;line-height:1.25;
+  text-decoration:none;text-align:center;
+  border-radius:999px;border:2px solid transparent;cursor:pointer;
+  transition:background .15s, transform .15s;
+}
+.btn:active{transform:scale(.98);}
+.btn svg{width:22px;height:22px;flex:none;}
+.btn--yellow{background:var(--yellow);color:var(--black);}
+.btn--yellow:hover,.btn--yellow:focus-visible{background:var(--yellow-dark);}
+.btn--black{background:var(--black);color:var(--white);}
+.btn--black:hover,.btn--black:focus-visible{background:#333;}
+.btn--ghost{background:transparent;color:var(--white);border-color:rgba(255,255,255,.55);}
+.btn--ghost:hover,.btn--ghost:focus-visible{border-color:var(--white);background:rgba(255,255,255,.06);}
+.btn--whatsapp{background:var(--wa);color:var(--black);}
+.btn--whatsapp:hover,.btn--whatsapp:focus-visible{background:#1fbd5a;}
+.btn--full{width:100%;}
+.btn:disabled{opacity:.45;cursor:not-allowed;}
+
+.cta-row{display:flex;justify-content:center;margin-top:2.25rem;}
+.cta-row .btn{width:100%;max-width:420px;}
+
+/* ---------- Titluri ---------- */
+.eyebrow{
+  display:inline-block;
+  font-family:var(--head);font-size:.78rem;font-weight:800;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--yellow);margin-bottom:.9rem;
+}
+.eyebrow--dark{color:var(--black);background:var(--yellow);padding:.3rem .7rem;border-radius:6px;}
+.section-title{
+  font-family:var(--head);font-weight:900;
+  font-size:clamp(1.6rem, 4.6vw, 2.4rem);line-height:1.15;
+  text-align:center;letter-spacing:-.01em;
+}
+.section-title--left{text-align:left;}
+.section-title--light{color:var(--white);}
+.section-lead{
+  max-width:640px;margin:.9rem auto 0;
+  text-align:center;color:var(--muted);font-size:1.02rem;
+}
+.section-lead--light{color:var(--muted-light);}
+
+/* ---------- Secțiuni ---------- */
+.section{padding:3.5rem 0;}
+.section--tight{padding:2.5rem 0;}
+.section--white{background:var(--white);}
+.section--light{background:var(--gray);}
+.section--dark{background:var(--black);color:var(--white);}
+.section--yellow{background:var(--yellow);color:var(--black);}
+@media (min-width:900px){.section{padding:5rem 0;}}
+
+/* ---------- Bara de sus ---------- */
+.topbar{
+  position:sticky;top:0;z-index:60;
+  background:rgba(17,17,17,.96);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.topbar__inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:64px;}
+.topbar__logo{display:flex;align-items:center;gap:.65rem;text-decoration:none;color:var(--white);}
+.topbar__logo img{width:44px;height:44px;border-radius:50%;}
+.topbar__logo span{font-family:var(--head);font-size:.72rem;font-weight:700;line-height:1.25;display:none;}
+@media (min-width:600px){.topbar__logo span{display:block;}}
+.topbar__phone{
+  display:flex;align-items:center;gap:.45rem;
+  color:var(--yellow);font-family:var(--head);font-weight:800;font-size:1.05rem;
+  text-decoration:none;padding:.5rem 0;
+}
+.topbar__phone svg{width:22px;height:22px;}
+
+/* ---------- 1. Hero ---------- */
+.hero{background:var(--black);color:var(--white);padding:2.75rem 0 3.5rem;overflow:hidden;}
+.hero__grid{display:grid;gap:2.25rem;align-items:center;}
+.hero__title{
+  font-family:var(--head);font-weight:900;
+  font-size:clamp(2.6rem, 10vw, 4.6rem);line-height:1.02;letter-spacing:-.02em;
+}
+.hl{color:var(--yellow);}
+.hero__subtitle{margin-top:1.1rem;font-size:1.08rem;color:#d8d8d8;max-width:560px;}
+.hero__facts{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem;}
+.hero__facts li{
+  border:1px solid rgba(255,255,255,.18);border-radius:999px;
+  padding:.45rem .9rem;font-size:.9rem;color:#e6e6e6;
+}
+.hero__facts strong{color:var(--yellow);font-family:var(--head);}
+.hero__ctas{display:flex;flex-direction:column;gap:.75rem;margin-top:1.9rem;}
+.hero__video{
+  position:relative;border-radius:var(--radius);overflow:hidden;
+  background:#000;aspect-ratio:16/9;
+  box-shadow:0 0 0 6px rgba(252,211,7,.9);
+}
+.hero__video video{width:100%;height:100%;object-fit:cover;}
+.hero__media-note{margin-top:1.1rem;font-size:.88rem;color:var(--muted-light);text-align:center;}
+@media (min-width:600px){
+  .hero__ctas{flex-direction:row;flex-wrap:wrap;}
+}
+@media (min-width:960px){
+  .hero{padding:4.5rem 0 5rem;}
+  .hero__grid{grid-template-columns:1.05fr 1fr;gap:3.5rem;}
+}
+
+/* ---------- 2. Calificare ---------- */
+.qualify{display:grid;gap:1rem;margin-top:2.25rem;}
+.qualify__card{
+  display:grid;grid-template-columns:112px 1fr;gap:1rem;align-items:center;
+  background:var(--white);border-radius:var(--radius);padding:.85rem;
+  text-decoration:none;color:var(--black);
+  border:2px solid transparent;transition:border-color .15s, transform .15s;
+}
+.qualify__card:hover,.qualify__card:focus-visible{border-color:var(--black);transform:translateY(-2px);}
+.qualify__img{display:block;border-radius:12px;overflow:hidden;aspect-ratio:1;background:var(--gray);}
+.qualify__img img{width:100%;height:100%;object-fit:cover;}
+.qualify__body{display:flex;flex-direction:column;gap:.35rem;}
+.qualify__body strong{font-family:var(--head);font-size:1.08rem;line-height:1.25;}
+.qualify__body span{font-size:.92rem;color:var(--muted);}
+.qualify__body .qualify__more{color:var(--black);font-weight:700;font-size:.9rem;text-decoration:underline;text-underline-offset:3px;}
+@media (min-width:860px){
+  .qualify{grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+  .qualify__card{grid-template-columns:1fr;padding:1rem;align-items:start;}
+  .qualify__img{aspect-ratio:4/3;}
+  .qualify__body{padding:.4rem .4rem .6rem;}
+}
+
+/* ---------- 3. Galerie înainte / după ---------- */
+.gallery{display:grid;gap:1.25rem;margin-top:2.25rem;}
+@media (min-width:760px){.gallery{grid-template-columns:repeat(2,1fr);gap:1.5rem;}}
+
+.ba-slider__frame{
+  --pos:50%;
+  position:relative;aspect-ratio:900/364;
+  border-radius:14px;overflow:hidden;
+  cursor:ew-resize;user-select:none;-webkit-user-select:none;touch-action:pan-y;
+  background:#222;
+}
+.ba-slider__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;}
+.ba-slider__img--before{clip-path:inset(0 calc(100% - var(--pos)) 0 0);}
+.ba-slider__tag{
+  position:absolute;top:10px;
+  font-family:var(--head);font-size:.68rem;font-weight:800;letter-spacing:.08em;
+  padding:.25rem .55rem;border-radius:6px;pointer-events:none;
+}
+.ba-slider__tag--before{left:10px;background:var(--black);color:var(--white);}
+.ba-slider__tag--after{right:10px;background:var(--yellow);color:var(--black);}
+.ba-slider__handle{
+  position:absolute;top:0;bottom:0;left:var(--pos);width:3px;margin-left:-1.5px;
+  background:var(--yellow);
+}
+.ba-slider__handle::after{
+  content:"";position:absolute;top:50%;left:50%;
+  width:38px;height:38px;margin:-19px 0 0 -19px;border-radius:50%;
+  background:var(--yellow) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 7l-5 5 5 5M16 7l5 5-5 5' stroke='%23111111' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/22px no-repeat;
+  box-shadow:0 2px 10px rgba(0,0,0,.35);
+}
+.ba-slider__handle:focus-visible{outline:none;}
+.ba-slider__handle:focus-visible::after{box-shadow:0 0 0 4px var(--white);}
+
+/* ---------- 4 / 9. Două coloane (imagine + text) ---------- */
+.split{display:grid;gap:2rem;}
+.split__media img{width:100%;border-radius:var(--radius);object-fit:cover;object-position:center 30%;max-height:400px;}
+.split__text .btn{margin-top:1.75rem;width:100%;}
+@media (min-width:900px){
+  .split{grid-template-columns:.9fr 1.1fr;gap:3.5rem;align-items:center;}
+  .split__media img{max-height:640px;}
+  .split__text .btn{width:auto;}
+  .split--center .split__media{order:2;}
+}
+.steps-list{display:grid;gap:1.1rem;margin-top:1.5rem;}
+.steps-list li{
+  position:relative;padding-left:2.4rem;color:var(--muted);font-size:.98rem;
+}
+.steps-list li::before{
+  content:"";position:absolute;left:0;top:.15rem;width:1.6rem;height:1.6rem;border-radius:50%;
+  background:var(--yellow) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' stroke='%23111111' stroke-width='2.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat;
+}
+.steps-list strong{display:block;color:var(--black);font-family:var(--head);font-size:1.02rem;margin-bottom:.15rem;}
+
+/* ---------- 5. De ce CIC ---------- */
+.tiles4{display:grid;gap:1rem;margin-top:2.25rem;}
+.tile4{background:var(--black);color:var(--white);border-radius:var(--radius);padding:1.5rem;}
+.tile4__icon{display:block;width:52px;height:52px;color:var(--yellow);margin-bottom:1rem;}
+.tile4__icon svg{width:100%;height:100%;}
+.tile4 strong{display:block;font-family:var(--head);font-size:1.12rem;line-height:1.25;margin-bottom:.45rem;}
+.tile4 p{color:#cfcfcf;font-size:.95rem;}
+@media (min-width:600px){.tiles4{grid-template-columns:repeat(2,1fr);}}
+@media (min-width:1000px){.tiles4{grid-template-columns:repeat(4,1fr);gap:1.25rem;}}
+
+/* ---------- 6. Cazuri video ---------- */
+.cases{display:grid;gap:2rem;margin-top:2.25rem;}
+.case__video{
+  border-radius:var(--radius);overflow:hidden;background:#000;aspect-ratio:9/16;
+  max-width:340px;margin:0 auto;
+}
+.case__video video{width:100%;height:100%;object-fit:cover;}
+.case{text-align:center;}
+.case__tag{
+  display:inline-block;margin-top:1.1rem;
+  background:var(--yellow);color:var(--black);
+  font-family:var(--head);font-size:.78rem;font-weight:800;
+  padding:.35rem .8rem;border-radius:999px;
+}
+.case__title{font-family:var(--head);font-size:1.12rem;margin-top:.7rem;line-height:1.3;}
+.case__text{color:var(--muted-light);font-size:.95rem;margin-top:.4rem;max-width:340px;margin-left:auto;margin-right:auto;}
+@media (min-width:860px){.cases{grid-template-columns:repeat(3,1fr);gap:1.75rem;}}
+
+/* ---------- 7. Viața după ---------- */
+.tiles3{display:grid;gap:1rem;margin-top:2.25rem;}
+.tile3{background:var(--white);border-radius:var(--radius);padding:1.6rem;text-align:center;}
+.tile3__icon{
+  display:flex;align-items:center;justify-content:center;
+  width:72px;height:72px;margin:0 auto 1rem;border-radius:50%;
+  background:var(--yellow);color:var(--black);
+}
+.tile3__icon svg{width:38px;height:38px;}
+.tile3 h3{font-family:var(--head);font-size:1.15rem;margin-bottom:.4rem;}
+.tile3 p{color:var(--muted);font-size:.95rem;}
+@media (min-width:760px){.tiles3{grid-template-columns:repeat(3,1fr);gap:1.5rem;}}
+
+/* ---------- 8. Procesul în 3 pași ---------- */
+.process{display:grid;gap:2.25rem;margin-top:2.5rem;counter-reset:step;}
+.process__step{position:relative;text-align:center;}
+.process__img{
+  display:block;border-radius:var(--radius);overflow:hidden;aspect-ratio:16/9;background:var(--gray);
+}
+.process__img img{width:100%;height:100%;object-fit:cover;}
+.process__img--icon{display:flex;align-items:center;justify-content:center;background:var(--black);color:var(--yellow);}
+.process__img--icon svg{width:96px;height:96px;}
+.process__num{
+  display:flex;align-items:center;justify-content:center;
+  width:52px;height:52px;margin:-26px auto 0;position:relative;
+  border-radius:50%;background:var(--yellow);color:var(--black);
+  font-family:var(--head);font-weight:900;font-size:1.3rem;
+  border:4px solid var(--white);
+}
+.process__step h3{font-family:var(--head);font-size:1.15rem;margin-top:.75rem;line-height:1.3;}
+.process__step p{color:var(--muted);font-size:.95rem;margin-top:.4rem;}
+@media (min-width:860px){
+  .process{grid-template-columns:repeat(3,1fr);gap:1.75rem;}
+}
+
+/* ---------- 9. Cum funcționează un implant ---------- */
+.anatomy{display:grid;gap:1rem;margin-top:1.5rem;}
+.anatomy li{display:flex;gap:.9rem;align-items:flex-start;color:#d4d4d4;font-size:.98rem;}
+.anatomy strong{color:var(--white);font-family:var(--head);}
+.anatomy__n{
+  flex:none;display:flex;align-items:center;justify-content:center;
+  width:30px;height:30px;border-radius:50%;
+  background:var(--yellow);color:var(--black);font-family:var(--head);font-weight:900;font-size:.9rem;
+}
+.anatomy__note{
+  margin-top:1.5rem;padding:1rem 1.1rem;border-left:4px solid var(--yellow);
+  background:rgba(255,255,255,.05);border-radius:0 12px 12px 0;
+  color:#e2e2e2;font-size:.95rem;
+}
+.split__media--svg{display:flex;justify-content:center;}
+.implant-svg{width:100%;max-width:360px;height:auto;border-radius:var(--radius);background:#1d1d1d;}
+
+/* ---------- 10. Diplome (derulare orizontală) ---------- */
+.hscroll{position:relative;margin-top:2.25rem;}
+.hscroll__track{
+  display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;
+  padding-bottom:.75rem;scrollbar-width:thin;
+}
+.diploma{
+  flex:0 0 78%;scroll-snap-align:start;
+  aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:var(--white);
+}
+.diploma img{width:100%;height:100%;object-fit:contain;}
+.diploma--placeholder{
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  border:2px dashed #c9c9c9;color:#8a8a8a;font-weight:700;font-size:.9rem;
+}
+.hscroll__btn{
+  display:none;position:absolute;top:calc(50% - .375rem);transform:translateY(-50%);
+  width:48px;height:48px;border-radius:50%;border:none;cursor:pointer;
+  background:var(--black);color:var(--white);font-size:1.6rem;line-height:1;
+}
+.hscroll__btn--prev{left:-12px;}
+.hscroll__btn--next{right:-12px;}
+@media (min-width:700px){.diploma{flex-basis:calc((100% - 2rem)/3);}}
+@media (min-width:900px){.hscroll__btn{display:block;}}
+
+/* ---------- 11. Medicul ---------- */
+.doctor{display:grid;gap:2rem;align-items:center;}
+.doctor__photo{
+  width:220px;height:220px;margin:0 auto;border-radius:50%;
+  background:var(--yellow);padding:8px;
+}
+.doctor__photo img{width:100%;height:100%;border-radius:50%;object-fit:cover;}
+.doctor__role{font-weight:700;margin:.5rem 0 1rem;}
+.doctor__text > p:not(.eyebrow):not(.doctor__role){color:var(--muted);}
+.doctor__facts{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.4rem;}
+.doctor__facts li{background:var(--gray);border-radius:12px;padding:.75rem 1rem;font-size:.92rem;}
+.doctor__facts strong{display:block;font-family:var(--head);font-size:1.5rem;line-height:1.1;}
+@media (min-width:800px){
+  .doctor{grid-template-columns:300px 1fr;gap:3.5rem;}
+  .doctor__photo{width:300px;height:300px;}
+}
+
+/* ---------- 12. Prețul ---------- */
+.price{display:grid;gap:2.25rem;align-items:center;}
+.price__explain p{color:#d4d4d4;margin-top:1rem;}
+.price__explain p strong{color:var(--white);}
+.price__card{background:var(--white);color:var(--black);border-radius:22px;padding:1.75rem 1.4rem;text-align:center;}
+.price__label{font-family:var(--head);font-weight:800;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;}
+.price__amount{
+  display:inline-block;margin-top:.6rem;
+  font-family:var(--head);font-weight:900;font-size:clamp(3rem, 12vw, 4.4rem);line-height:1;
+  background:var(--yellow);color:var(--black);padding:.35rem 1.1rem;border-radius:14px;
+}
+.price__per{margin-top:.6rem;font-weight:700;}
+.price__items{margin-top:1.5rem;text-align:left;border-top:1px solid var(--gray-line);}
+.price__items li{
+  display:flex;justify-content:space-between;gap:1rem;align-items:baseline;
+  padding:.7rem 0;border-bottom:1px solid var(--gray-line);font-size:.92rem;
+}
+.price__items s{flex:none;color:#9a9a9a;font-size:.85rem;}
+.price__foot{margin-top:1.1rem;font-size:.88rem;color:var(--muted);}
+@media (min-width:900px){.price{grid-template-columns:1fr 1fr;gap:4rem;}}
+
+/* ---------- 13. Cifre ---------- */
+.numbers{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem 1rem;text-align:center;}
+.number strong{display:block;font-family:var(--head);font-weight:900;font-size:clamp(2rem, 7vw, 2.8rem);line-height:1.05;}
+.number span{display:block;margin-top:.3rem;font-size:.9rem;font-weight:600;}
+@media (min-width:800px){.numbers{grid-template-columns:repeat(4,1fr);}}
+
+/* ---------- 14. Recenzii ---------- */
+.reviews{display:grid;gap:1rem;margin-top:2.25rem;}
+.review{border-radius:14px;overflow:hidden;background:var(--white);box-shadow:0 2px 14px rgba(0,0,0,.06);}
+.review img{width:100%;height:auto;}
+.review--placeholder{
+  display:flex;align-items:center;justify-content:center;min-height:180px;
+  border:2px dashed #c9c9c9;box-shadow:none;color:#8a8a8a;font-weight:700;font-size:.9rem;text-align:center;padding:1rem;
+}
+@media (min-width:760px){.reviews{grid-template-columns:repeat(3,1fr);gap:1.25rem;align-items:start;}}
+
+/* ---------- 15. Întrebări frecvente ---------- */
+.faq{margin-top:2rem;border-top:2px solid var(--black);}
+.faq__item{border-bottom:1px solid var(--gray-line);}
+.faq__item summary{
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;
+  padding:1.2rem 0;cursor:pointer;list-style:none;
+  font-family:var(--head);font-weight:800;font-size:1.05rem;
+}
+.faq__item summary::-webkit-details-marker{display:none;}
+.faq__icon{
+  flex:none;position:relative;width:32px;height:32px;border-radius:50%;background:var(--yellow);
+}
+.faq__icon::before,.faq__icon::after{
+  content:"";position:absolute;top:50%;left:50%;width:14px;height:2.5px;margin:-1.25px 0 0 -7px;
+  background:var(--black);border-radius:2px;transition:transform .2s;
+}
+.faq__icon::after{transform:rotate(90deg);}
+.faq__item[open] .faq__icon::after{transform:rotate(0);}
+.faq__item p{padding:0 0 1.3rem;color:var(--muted);}
+
+/* ---------- 16. Oferta finală ---------- */
+.offer{display:grid;gap:1rem;}
+.offer__panel{
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:.5rem;
+  border:2px solid var(--yellow);border-radius:var(--radius);padding:1.75rem 1.25rem;
+}
+.offer__panel svg{width:40px;height:40px;color:var(--yellow);}
+.offer__panel strong{font-family:var(--head);font-size:clamp(1.3rem, 4vw, 1.7rem);line-height:1.2;}
+.offer__panel span{color:var(--muted-light);font-size:.95rem;}
+.offer__buttons{display:grid;gap:.85rem;margin-top:1.75rem;}
+@media (min-width:700px){
+  .offer{grid-template-columns:1fr 1fr;gap:1.25rem;}
+  .offer__buttons{grid-template-columns:1fr 1fr;max-width:640px;margin-left:auto;margin-right:auto;}
+}
+
+/* ---------- 17. Formular ---------- */
+.lead-form{display:flex;flex-direction:column;gap:.5rem;margin-top:2rem;}
+.lead-form label{font-weight:700;margin-top:.6rem;}
+.lead-form__optional{font-weight:400;color:var(--muted);}
+.lead-form input[type=text],.lead-form input[type=tel],.lead-form textarea{
+  width:100%;min-height:58px;padding:.9rem 1rem;
+  font:inherit;font-size:1.05rem;color:var(--black);
+  background:var(--gray);border:2px solid var(--gray);border-radius:12px;
+}
+.lead-form textarea{resize:vertical;min-height:120px;}
+.lead-form input:focus,.lead-form textarea:focus{outline:none;border-color:var(--black);background:var(--white);}
+.lead-form__consent{
+  display:flex !important;gap:.75rem;align-items:flex-start;
+  font-weight:400 !important;font-size:.92rem;margin:1rem 0 .75rem;cursor:pointer;
+}
+.lead-form__consent input{width:24px;height:24px;flex:none;margin:0;accent-color:var(--black);}
+.lead-form__hint{font-size:.85rem;color:var(--muted);text-align:center;margin-top:.4rem;}
+.lead-form__status{text-align:center;font-weight:700;margin-top:.5rem;}
+.lead-form__status:empty{display:none;}
+.lead-form__status--ok{background:var(--black);color:var(--white);padding:1rem;border-radius:12px;}
+.lead-form__status--error{color:#b00020;}
+
+/* ---------- Subsol ---------- */
+.footer{background:var(--black);color:var(--white);padding:3rem 0 7rem;}
+.footer__inner{display:grid;gap:1.75rem;text-align:center;}
+.footer__brand{display:flex;flex-direction:column;align-items:center;gap:.6rem;font-family:var(--head);font-weight:800;}
+.footer__brand img{border-radius:50%;}
+.footer__contacts{display:grid;gap:.9rem;}
+.footer__contacts li{color:#dcdcdc;}
+.footer__contacts span{display:block;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-light);}
+.footer__contacts a{color:var(--yellow);font-family:var(--head);font-weight:800;font-size:1.2rem;text-decoration:none;}
+.footer__legal{font-size:.85rem;color:var(--muted-light);}
+@media (min-width:800px){
+  .footer{padding-bottom:3rem;}
+  .footer__inner{grid-template-columns:auto 1fr auto;text-align:left;align-items:center;}
+  .footer__brand{flex-direction:row;}
+  .footer__contacts{grid-template-columns:auto auto;justify-content:center;gap:2.5rem;}
+}
+
+/* ---------- Butoane flotante: apel + WhatsApp ---------- */
+.float-contact{
+  position:fixed;right:16px;bottom:16px;z-index:70;
+  display:flex;flex-direction:column;gap:.7rem;
+}
+.float-contact__btn{
+  display:flex;align-items:center;justify-content:center;
+  width:60px;height:60px;border-radius:50%;
+  box-shadow:0 6px 18px rgba(0,0,0,.28);
+  position:relative;transition:transform .15s;
+}
+.float-contact__btn:hover{transform:scale(1.06);}
+.float-contact__btn svg{width:30px;height:30px;}
+.float-contact__btn--wa{background:var(--wa);color:var(--white);}
+.float-contact__btn--call{background:var(--yellow);color:var(--black);}
+.float-contact__btn--call::before{
+  content:"";position:absolute;width:60px;height:60px;border-radius:50%;
+  border:2px solid var(--yellow);animation:pulse 2s infinite;
+}
+@keyframes pulse{0%{transform:scale(1);opacity:.9;}100%{transform:scale(1.5);opacity:0;}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .float-contact__btn--call::before{animation:none;display:none;}
+}

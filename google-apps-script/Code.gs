@@ -8,6 +8,12 @@
  * a spreadsheet-ului la care este atașat acest script.
  */
 
+// Un text care începe cu = + - @ ar fi interpretat de Sheets ca formulă.
+function textSigur(value) {
+  var text = String(value || "");
+  return /^[=+\-@]/.test(text) ? "'" + text : text;
+}
+
 function doPost(e) {
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
 
@@ -22,10 +28,11 @@ function doPost(e) {
 
   sheet.appendRow([
     new Date(),
-    data.nume || "",
-    data.telefon || "",
+    textSigur(data.nume),
+    textSigur(data.telefon),
     data.sursa || "",
-    data.consimtamant === true ? "DA" : "NU"
+    data.consimtamant === true ? "DA" : "NU",
+    textSigur(data.mesaj)
   ]);
 
   return ContentService
