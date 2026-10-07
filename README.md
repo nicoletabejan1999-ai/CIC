@@ -137,7 +137,7 @@ Pagină separată, construită după documentul „CIC New Landing Page — Buil
 - `assets/img/lp/` — cadre reale extrase din videoclipurile clinicii (sala de operații; pentru pașii tratamentului: planul pe radiografie, lucrul la provizorii; pasul 4 folosește fotografia „după” a pacientei Vera P.), fără subtitrări.
 
 **Urmărire evenimente (Meta):**
-- `Contact` — la orice clic pe telefon, WhatsApp sau Messenger (toate elementele cu `data-contact`: bara de sus, hero, oferta finală, subsol, butoanele flotante). Numele butonului e trimis în `content_name`.
+- `Contact` — la orice clic pe telefon, WhatsApp sau Messenger (inclusiv banda galbenă care rulează sus: „Trimite pozele dinților tăi pe WhatsApp…”, care deschide WhatsApp cu un mesaj deja scris) (toate elementele cu `data-contact`: bara de sus, hero, oferta finală, subsol, butoanele flotante). Numele butonului e trimis în `content_name`.
 - `Lead` — strict la trimiterea cu succes a formularului (Pixel + CAPI, deduplicat prin `event_id`, la fel ca pe pagina principală).
 - În Events Manager: `Lead` trebuie pus deasupra lui `Contact` în prioritatea evenimentelor. Trecerea prin CustomerLabs 1PD Ops se configurează în afara codului.
 

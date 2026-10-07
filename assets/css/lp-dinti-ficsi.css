@@ -103,6 +103,27 @@ svg{display:block;}
 .section--yellow{background:var(--yellow);color:var(--black);}
 @media (min-width:900px){.section{padding:5rem 0;}}
 
+/* ---------- Bandă care rulează (pozele dinților pe WhatsApp) ---------- */
+.ticker{
+  display:block;overflow:hidden;
+  background:var(--yellow);color:var(--black);text-decoration:none;
+  border-bottom:2px solid var(--black);
+}
+.ticker__track{display:flex;width:max-content;animation:ticker 32s linear infinite;}
+.ticker:hover .ticker__track,.ticker:focus-visible .ticker__track{animation-play-state:paused;}
+.ticker__group{display:flex;flex:none;}
+.ticker__item{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.6rem 1.6rem;white-space:nowrap;
+  font-family:var(--head);font-weight:800;font-size:.92rem;
+}
+.ticker__item svg{width:20px;height:20px;flex:none;}
+.ticker__item::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--black);margin-left:1.6rem;}
+@keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+@media (prefers-reduced-motion:reduce){
+  .ticker__track{animation:none;}
+}
+
 /* ---------- Bara de sus ---------- */
 .topbar{
   position:sticky;top:0;z-index:60;
