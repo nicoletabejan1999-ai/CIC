@@ -133,7 +133,9 @@ Pagină separată, construită după documentul „CIC New Landing Page — Buil
 
 - `dinti-ficsi/index.html` — pagina; adresa publică va fi `/dinti-ficsi/`.
 - `assets/css/lp-dinti-ficsi.css` — stiluri proprii (hero negru, alternanță negru / gri / galben, două coloane pe ecrane mari, font Montserrat pentru titluri).
-- `assets/js/lp-dinti-ficsi.js` — glisoare înainte/după, derularea diplomelor, precompletarea mesajului din cardurile „pentru tine, dacă…”, evenimentele Meta, formularul.
+- `assets/js/lp-dinti-ficsi.js` — glisoare înainte/după, derularea diplomelor, evenimentele Meta, formularul.
+
+**Împărțirea butoanelor pe „temperatura” vizitatorului** (ca la Magnum Dent): în prima jumătate a paginii (blocurile 1–7: hero, „pentru tine, dacă…”, galeria, confortul, avantajele) butoanele deschid WhatsApp cu un mesaj deja scris (cardurile din blocul 2 scriu și situația aleasă). De la blocul 8 („Tratamentul, în 4 pași”) în jos, butoanele duc la formular — cine a derulat până acolo e mai hotărât. Excepții: cartonașul „trimite poze” din blocul 8 și oferta finală (apel / WhatsApp / Messenger), plus banda de sus, bara de sus și butoanele flotante, prezente peste tot. În Events Manager, butoanele se deosebesc după `content_name` (ex. `whatsapp-hero`, `whatsapp-calificare-2`, `whatsapp-galerie`).
 - `assets/img/lp/` — cadre reale extrase din videoclipurile clinicii (sala de operații; pentru pașii tratamentului: planul pe radiografie, lucrul la provizorii; pasul 4 folosește fotografia „după” a pacientei Vera P.), fără subtitrări.
 
 **Urmărire evenimente (Meta):**

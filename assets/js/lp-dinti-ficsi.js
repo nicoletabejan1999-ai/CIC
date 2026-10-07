@@ -101,20 +101,6 @@
   });
 })();
 
-/* ---------- Cardurile „pentru tine, dacă…” precompletează mesajul din formular ---------- */
-(function () {
-  "use strict";
-
-  var mesaj = document.getElementById("mesaj");
-  if (!mesaj) return;
-
-  document.querySelectorAll("[data-situatie]").forEach(function (card) {
-    card.addEventListener("click", function () {
-      if (!mesaj.value.trim()) mesaj.value = card.getAttribute("data-situatie") + " ";
-    });
-  });
-})();
-
 /* ---------- Formular (trimite către /api/submit-lead, la fel ca pagina principală) ---------- */
 (function () {
   "use strict";
