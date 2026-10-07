@@ -137,7 +137,7 @@ Pagină separată, construită după documentul „CIC New Landing Page — Buil
 - `assets/img/lp/` — cadre reale extrase din videoclipurile clinicii (sala de operații; pentru pașii tratamentului: planul pe radiografie, lucrul la provizorii; pasul 4 folosește fotografia „după” a pacientei Vera P.), fără subtitrări.
 
 **Urmărire evenimente (Meta):**
-- `Contact` — la orice clic pe telefon sau WhatsApp (toate elementele cu `data-contact`: bara de sus, hero, oferta finală, subsol, butoanele flotante). Numele butonului e trimis în `content_name`.
+- `Contact` — la orice clic pe telefon, WhatsApp sau Messenger (toate elementele cu `data-contact`: bara de sus, hero, oferta finală, subsol, butoanele flotante). Numele butonului e trimis în `content_name`.
 - `Lead` — strict la trimiterea cu succes a formularului (Pixel + CAPI, deduplicat prin `event_id`, la fel ca pe pagina principală).
 - În Events Manager: `Lead` trebuie pus deasupra lui `Contact` în prioritatea evenimentelor. Trecerea prin CustomerLabs 1PD Ops se configurează în afara codului.
 
@@ -147,6 +147,7 @@ Pagină separată, construită după documentul „CIC New Landing Page — Buil
 
 **De înlocuit / confirmat înainte de lansare (marcat cu comentarii în cod):**
 1. Numărul de WhatsApp — acum `wa.me/37367903903` (presupus același cu telefonul).
+1. Messenger — butoanele (flotant + oferta finală) sunt deja în pagină, dar ascunse (`hidden`) până primim numele paginii de Facebook: înlocuiți `PAGINA_FACEBOOK` (de 2 ori) și scoateți `hidden`. Clicul trimite tot evenimentul `Contact`.
 2. Blocul 2 — imaginile din carduri sunt ilustrații provizorii; trebuie fotografii reale ale pacienților (cu acord). Cardurile duc deocamdată la formular; dacă există ghiduri PDF pentru fiecare situație, se pot lega acolo.
 3. Blocul 4 — tipul de anestezie / sedare folosit efectiv.
 4. Blocul 6 — deocamdată cazuri povestite de medic; de adăugat videoclipuri cu pacienții (prenume, vârstă, context).

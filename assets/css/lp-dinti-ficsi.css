@@ -17,6 +17,7 @@
   --muted:#5c5c5c;
   --muted-light:#b9b9b9;
   --wa:#25D366;
+  --messenger:#0084FF;
   --radius:18px;
   --head:"Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   --body:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -63,6 +64,9 @@ svg{display:block;}
 .btn--ghost:hover,.btn--ghost:focus-visible{border-color:var(--white);background:rgba(255,255,255,.06);}
 .btn--whatsapp{background:var(--wa);color:var(--black);}
 .btn--whatsapp:hover,.btn--whatsapp:focus-visible{background:#1fbd5a;}
+.btn--messenger{background:var(--messenger);color:var(--white);}
+.btn--messenger:hover,.btn--messenger:focus-visible{background:#006fd6;}
+.btn[hidden],.float-contact__btn[hidden]{display:none;}
 .btn--full{width:100%;}
 .btn:disabled{opacity:.45;cursor:not-allowed;}
 
@@ -432,9 +436,10 @@ svg{display:block;}
 .offer__panel strong{font-family:var(--head);font-size:clamp(1.3rem, 4vw, 1.7rem);line-height:1.2;}
 .offer__panel span{color:var(--muted-light);font-size:.95rem;}
 .offer__buttons{display:grid;gap:.85rem;margin-top:1.75rem;}
+.offer__buttons .btn{white-space:nowrap;padding-left:1.25rem;padding-right:1.25rem;}
 @media (min-width:700px){
   .offer{grid-template-columns:1fr 1fr;gap:1.25rem;}
-  .offer__buttons{grid-template-columns:1fr 1fr;max-width:640px;margin-left:auto;margin-right:auto;}
+  .offer__buttons{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));max-width:900px;margin-left:auto;margin-right:auto;}
 }
 
 /* ---------- 17. Formular ---------- */
@@ -490,6 +495,7 @@ svg{display:block;}
 .float-contact__btn:hover{transform:scale(1.06);}
 .float-contact__btn svg{width:30px;height:30px;}
 .float-contact__btn--wa{background:var(--wa);color:var(--white);}
+.float-contact__btn--messenger{background:var(--messenger);color:var(--white);}
 .float-contact__btn--call{background:var(--yellow);color:var(--black);}
 .float-contact__btn--call::before{
   content:"";position:absolute;width:60px;height:60px;border-radius:50%;
