@@ -307,7 +307,7 @@ svg{display:block;}
   font-family:var(--head);font-weight:900;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;
   padding:.25rem .8rem;border-radius:999px;
 }
-.process__phone{font-family:var(--head);font-weight:800;font-size:1.15rem;color:var(--white);}
+.process__phone{font-family:var(--head);font-weight:800;font-size:1rem;color:var(--white);text-align:center;padding:0 .75rem;line-height:1.25;}
 .process__num{
   display:flex;align-items:center;justify-content:center;
   width:52px;height:52px;margin:-26px auto 0;position:relative;
@@ -322,6 +322,7 @@ svg{display:block;}
 }
 @media (min-width:1000px){
   .process{grid-template-columns:repeat(4,1fr);gap:1.5rem;}
+  .process__img--call svg{display:none;}
 }
 
 /* ---------- 9. Cum funcționează un implant ---------- */
