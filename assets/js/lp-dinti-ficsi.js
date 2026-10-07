@@ -1,7 +1,7 @@
 /* CIC — pagina „Dinți ficși în 4 zile” (/dinti-ficsi/) */
 
 /* ---------- Eveniment Meta „Contact”: orice clic pe telefon / WhatsApp ---------- */
-// Tot aici intră și Messenger (link m.me), dacă butoanele lui sunt afișate.
+// Tot aici intră și Messenger.
 // Lead rămâne strict pentru trimiterea formularului (mai jos). Contact se trimite
 // de pe fiecare buton marcat cu data-contact, oriunde apare pe pagină.
 (function () {
@@ -10,9 +10,10 @@
   document.addEventListener("click", function (e) {
     var link = e.target.closest ? e.target.closest("[data-contact]") : null;
     if (!link || typeof fbq !== "function") return;
-    var href = link.getAttribute("href");
-    var canal = href.indexOf("wa.me") !== -1 ? "whatsapp" : href.indexOf("m.me") !== -1 ? "messenger" : "telefon";
-    fbq("track", "Contact", { content_name: link.getAttribute("data-contact"), content_category: canal });
+    // Canalul se citește din numele butonului (data-contact="whatsapp-…", "messenger-…", "telefon-…").
+    var nume = link.getAttribute("data-contact");
+    var canal = nume.split("-")[0];
+    fbq("track", "Contact", { content_name: nume, content_category: canal });
   });
 })();
 
