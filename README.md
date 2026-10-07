@@ -147,7 +147,7 @@ Pagină separată, construită după documentul „CIC New Landing Page — Buil
 
 **De înlocuit / confirmat înainte de lansare (marcat cu comentarii în cod):**
 1. Numărul de WhatsApp — acum `wa.me/37367903903` (presupus același cu telefonul).
-1. Messenger — butoanele (flotant + oferta finală) sunt deja în pagină, dar ascunse (`hidden`) până primim numele paginii de Facebook: înlocuiți `PAGINA_FACEBOOK` (de 2 ori) și scoateți `hidden`. Clicul trimite tot evenimentul `Contact`.
+1. Messenger — butoanele (flotant + oferta finală) duc la `m.me/centru.cic` (pagina de Facebook „Centru.cic”). De verificat o dată, de pe telefon, că deschid conversația cu clinica. Clicul trimite tot evenimentul `Contact`.
 2. Blocul 2 — imaginile din carduri sunt ilustrații provizorii; trebuie fotografii reale ale pacienților (cu acord). Cardurile duc deocamdată la formular; dacă există ghiduri PDF pentru fiecare situație, se pot lega acolo.
 3. Blocul 4 — tipul de anestezie / sedare folosit efectiv.
 4. Blocul 6 — deocamdată cazuri povestite de medic; de adăugat videoclipuri cu pacienții (prenume, vârstă, context).
